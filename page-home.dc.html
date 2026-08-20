@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>Wüthrich Architekten AG — Architektur, die zuhört</title>
+<meta name="description" content="Wüthrich Architekten AG — Architektur im Berner Seeland. Planung, Bauprozess, Immobilien und Spezialgebiete.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  @keyframes introVeil { 0%, 84% { opacity: 1 } 100% { opacity: 0 } }
+  @keyframes introMono {
+    0%  { transform: translate(calc(50vw - 118px), calc(50vh - 118px)) scale(1); opacity: 0 }
+    12% { transform: translate(calc(50vw - 118px), calc(50vh - 118px)) scale(1); opacity: 1 }
+    40% { transform: translate(calc(50vw - 118px), calc(50vh - 118px)) scale(1); opacity: 1 }
+    88%, 95% { transform: translate(calc(max(40px, (100vw - 1600px)/2 + 40px) + 22px - 118px), calc(40px - 118px)) scale(0.18644); opacity: 1 }
+    100% { transform: translate(calc(max(40px, (100vw - 1600px)/2 + 40px) + 22px - 118px), calc(40px - 118px)) scale(0.18644); opacity: 0 }
+  }
+  @keyframes heroReveal { from { transform: scale(1.06) } to { transform: scale(1) } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7">
+
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Wüthrich Architekten AG — Architektur im Berner Seeland</h1>
+
+  <sc-if value="{{ intro }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;inset:0;z-index:400;background:#111111;pointer-events:none;animation:introVeil 3.2s cubic-bezier(.62,0,.16,1) forwards">
+      <div style="position:absolute;left:0;top:0;width:236px;transform-origin:center center;animation:introMono 3.2s cubic-bezier(.62,0,.16,1) forwards">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid #FCFAF7;aspect-ratio:1/1;place-items:stretch">
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;letter-spacing:.02em;color:#FCFAF7">W</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">U</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">E</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">T</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">H</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">R</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">I</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">C</div>
+          <div style="display:grid;place-items:center;font:300 40px/1 Manrope,sans-serif;color:#FCFAF7">H</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+
+
+  <section style="position:relative;height:100vh;width:100%;overflow:hidden;background:#F4F0E9">
+    <div style="position:absolute;inset:0;animation:heroReveal 2.4s cubic-bezier(.2,.6,.1,1) 2.7s both">
+      <image-slot id="wa-home-hero" shape="rect" fit="cover" src="./uploads/_WE_4367-.jpg" placeholder="Hero — ein fertiggestelltes Projekt (16:9, ≥2400px breit)"></image-slot>
+    </div>
+    <div style="position:absolute;left:40px;bottom:36px;display:flex;align-items:center;gap:12px;pointer-events:none;animation:fadeUp 1s ease 3.4s both">
+      <span style="width:34px;height:1px;background:rgba(46,46,46,.5)"></span>
+      <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(46,46,46,.75)">Scroll</span>
+    </div>
+  </section>
+
+
+
+
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showIntro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Verhalten&quot;},&quot;menuSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Verhalten&quot;},&quot;showSocials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Footer&quot;}}">
+class Component extends DCLogic {
+  state = { intro: true, menuOpen: false, sub: null };
+
+  componentDidMount() {
+    if (this.props.showIntro === false) { this.setState({ intro: false }); return; }
+    this.t = setTimeout(() => this.setState({ intro: false }), 3250);
+  }
+  componentWillUnmount() {
+    clearTimeout(this.t);
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+
+  onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null }); };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.menuOpen !== this.state.menuOpen) {
+      document.body.style.overflow = this.state.menuOpen ? 'hidden' : '';
+      if (this.state.menuOpen) document.addEventListener('keydown', this.onKey);
+      else document.removeEventListener('keydown', this.onKey);
+    }
+  }
+
+  toggle(key) { this.setState(s => ({ sub: s.sub === key ? null : key })); }
+
+  renderVals() {
+    const open = this.state.menuOpen;
+    const side = this.props.menuSide === 'right' ? 'right' : 'left';
+    const panel = {
+      position: 'fixed', top: 0, bottom: 0, [side]: 0, zIndex: 420,
+      width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+      background: '#FCFAF7',
+      borderRight: side === 'left' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+      borderLeft: side === 'right' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+      transform: open ? 'none' : `translateX(${side === 'left' ? '-102%' : '102%'})`,
+      transition: 'transform .72s cubic-bezier(.72,0,.16,1)',
+      overflowY: 'auto'
+    };
+    const scrim = {
+      position: 'fixed', inset: 0, zIndex: 410, background: 'rgba(17,17,17,0.45)',
+      opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none',
+      transition: 'opacity .6s ease'
+    };
+    return {
+      intro: this.state.intro,
+      showSocials: this.props.showSocials !== false,
+      panelStyle: panel,
+      scrimStyle: scrim,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggle('leistungen'),
+      toggleUeberUns: () => this.toggle('ueber'),
+      toggleJobs: () => this.toggle('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs'
+    };
+  }
+}
+</script>
+</body>
+</html>

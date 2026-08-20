@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>Immobilien — Wüthrich Architekten AG</title>
+<meta name="description" content="Grundstücke entwickeln und vermitteln: Kauf und Verkauf von Bauland, Entwicklung von Gesamtprojekten sowie Vermittlung von Grundstücken, Wohnobjekten und Immobilien im Berner Seeland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7;overflow-x:hidden">
+
+
+
+  <main style="padding:132px 0 0">
+
+    <section aria-labelledby="immobilien-titel" style="max-width:1600px;margin:0 auto;padding:0 40px">
+      <div style="display:flex;flex-direction:column;gap:16px;padding-bottom:clamp(40px,5vw,74px)">
+        <nav aria-label="Brotkrumen" style="display:flex;align-items:center;gap:10px;font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">
+          <a href="./04 Services.dc.html" style="color:#9A9A9A" style-hover="color:#2E2E2E">Leistungen</a>
+        </nav>
+        <h1 id="immobilien-titel" style="margin:0;font:300 clamp(32px,4vw,60px)/1.04 Manrope,sans-serif;letter-spacing:-.02em;color:#2E2E2E">Immobilien</h1>
+      </div>
+
+      <div style="{{ introStyle }}">
+        <div style="display:flex;flex-direction:column;gap:22px;max-width:68ch">
+          <p style="margin:0;font:400 clamp(17px,1.35vw,20px)/1.62 Manrope,sans-serif;color:#2E2E2E">Grundstücke entwickeln und vermitteln — neben klassischen Architekturleistungen begleiten wir auch die Entwicklung von Grundstücken und Immobilienprojekten. Dazu gehören der Kauf und Verkauf von Bauland sowie die Entwicklung und Realisierung von Gesamtprojekten.</p>
+          <p style="margin:0;font:400 17px/1.68 Manrope,sans-serif;color:#4A4A4A">Darüber hinaus vermitteln wir Grundstücke, Wohnobjekte und Immobilien und unterstützen Eigentümer und Interessenten bei der erfolgreichen Vermarktung.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.10);align-self:start">
+          <a href="#angebote" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.10);font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B" style-hover="color:#2E2E2E">
+            <span>Aktuelle Angebote</span><span style="font:300 15px/1 Manrope,sans-serif">↓</span>
+          </a>
+          <a href="#ankauf" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.10);font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B" style-hover="color:#2E2E2E">
+            <span>Ankauf</span><span style="font:300 15px/1 Manrope,sans-serif">↓</span>
+          </a>
+          <a href="#verkauf" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.10);font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B" style-hover="color:#2E2E2E">
+            <span>Verkauf &amp; Vermittlung</span><span style="font:300 15px/1 Manrope,sans-serif">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="angebote" aria-labelledby="angebote-titel" style="max-width:1600px;margin:0 auto;padding:clamp(70px,8vw,130px) 40px 0;scroll-margin-top:120px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:clamp(32px,3.6vw,54px);border-bottom:1px solid rgba(0,0,0,.10)">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Immobilien</span>
+          <h2 id="angebote-titel" style="margin:0;font:300 clamp(28px,3.2vw,48px)/1.06 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:24ch">Aktuelle Immobilienangebote</h2>
+        </div>
+        <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B">{{ countLabel }}</span>
+      </div>
+
+      <sc-if value="{{ hasListings }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ gridStyle }}">
+          <sc-for list="{{ listings }}" as="l" hint-placeholder-count="3">
+            <a href="#" onMouseEnter="{{ l.enter }}" onMouseLeave="{{ l.leave }}" style="display:block;color:#2E2E2E">
+              <div style="{{ l.mediaStyle }}">
+                <div style="{{ l.zoomStyle }}">
+                  <img src="{{ l.src }}" alt="{{ l.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" />
+                </div>
+                <span style="{{ l.badgeStyle }}">{{ l.status }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px;padding-top:18px">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px">
+                  <span style="font:400 clamp(19px,1.5vw,23px)/1.2 Manrope,sans-serif;color:#2E2E2E">{{ l.name }}</span>
+                  <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A;white-space:nowrap">{{ l.ort }}</span>
+                </div>
+                <p style="margin:0;font:400 15px/1.6 Manrope,sans-serif;color:#6B6B6B;max-width:38ch">{{ l.body }}</p>
+                <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.10)">
+                  <sc-for list="{{ l.facts }}" as="f" hint-placeholder-count="3">
+                    <li style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.10)">
+                      <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A">{{ f.k }}</span>
+                      <span style="font:400 15px/1.3 Manrope,sans-serif;color:#2E2E2E">{{ f.v }}</span>
+                    </li>
+                  </sc-for>
+                </ul>
+                <span style="display:inline-flex;align-items:center;gap:10px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;padding-top:2px">
+                  <span>Dokumentation anfordern</span><span style="font:300 15px/1 Manrope,sans-serif">→</span>
+                </span>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ noListings }}">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:clamp(70px,8vw,120px) 0">
+          <span style="font:300 clamp(24px,2.4vw,34px)/1.2 Manrope,sans-serif;color:#2E2E2E">Derzeit keine Angebote publiziert.</span>
+          <p style="margin:0;font:400 16px/1.65 Manrope,sans-serif;color:#6B6B6B;max-width:48ch">Gerne nehmen wir Ihre Suchkriterien auf und melden uns, sobald ein passendes Objekt verfügbar ist.</p>
+          <a href="#" style="display:inline-flex;align-items:center;gap:12px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:8px;margin-top:10px" style-hover="color:#6B6B6B">
+            <span>Suchprofil hinterlegen</span><span style="font:300 15px/1 Manrope,sans-serif">→</span>
+          </a>
+        </div>
+      </sc-if>
+    </section>
+
+    <section id="ankauf" aria-labelledby="ankauf-titel" style="{{ splitStyle }}">
+      <figure style="{{ ankaufFigStyle }}">
+        <img src="./uploads/_WE_4304-.jpg" alt="Landwirtschaftliche Liegenschaft im Berner Seeland — Ankauf von Grundstücken, Wüthrich Architekten AG" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;background:#F4F0E9" />
+      </figure>
+      <div style="{{ ankaufTextStyle }}">
+        <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Ankauf</span>
+        <h2 id="ankauf-titel" style="margin:0;font:300 clamp(28px,2.9vw,44px)/1.08 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:18ch">Ankauf von Grundstücken &amp; Liegenschaften</h2>
+        <p style="margin:0;max-width:48ch;font:400 17px/1.68 Manrope,sans-serif;color:#4A4A4A">Wir kaufen Bauland, Entwicklungsareale und bestehende Liegenschaften im Berner Seeland und in der Region Bern — direkt, diskret und mit klarer Einschätzung des Potenzials.</p>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.10);max-width:460px">
+          <li style="padding:13px 0;border-bottom:1px solid rgba(0,0,0,.10);font:400 15px/1.4 Manrope,sans-serif;color:#2E2E2E">Bauland und Entwicklungsareale</li>
+          <li style="padding:13px 0;border-bottom:1px solid rgba(0,0,0,.10);font:400 15px/1.4 Manrope,sans-serif;color:#2E2E2E">Bestehende Wohn- und Gewerbeliegenschaften</li>
+          <li style="padding:13px 0;border-bottom:1px solid rgba(0,0,0,.10);font:400 15px/1.4 Manrope,sans-serif;color:#2E2E2E">Landwirtschaftliche Objekte mit Umnutzungspotenzial</li>
+          <li style="padding:13px 0;border-bottom:1px solid rgba(0,0,0,.10);font:400 15px/1.4 Manrope,sans-serif;color:#2E2E2E">Machbarkeitsstudie und Ausnutzungsprüfung</li>
+        </ul>
+        <a href="#" style="display:inline-flex;align-items:center;gap:12px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:8px;align-self:flex-start" style-hover="color:#6B6B6B">
+          <span>Objekt anbieten</span><span style="font:300 15px/1 Manrope,sans-serif">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="verkauf" aria-labelledby="verkauf-titel" style="margin-top:clamp(90px,10vw,160px);border-top:1px solid rgba(0,0,0,.10);background:#F4F0E9;scroll-margin-top:120px">
+      <div style="max-width:1600px;margin:0 auto;padding:clamp(56px,6vw,96px) 40px clamp(70px,8vw,120px)">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:clamp(40px,4.5vw,68px)">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Verkauf &amp; Vermittlung</span>
+            <h2 id="verkauf-titel" style="margin:0;font:300 clamp(28px,3.2vw,48px)/1.06 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:22ch">Von der Bewertung bis zur Beurkundung</h2>
+          </div>
+          <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B">Vier Schritte</span>
+        </div>
+
+        <ol style="{{ timelineStyle }}">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <li style="{{ s.style }}">
+              <span style="font:300 clamp(30px,2.8vw,42px)/1 Manrope,sans-serif;color:#B4ADA0">{{ s.num }}</span>
+              <span style="font:500 14px/1.3 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#2E2E2E">{{ s.name }}</span>
+              <span style="font:400 15px/1.55 Manrope,sans-serif;color:#6B6B6B;max-width:26ch">{{ s.sub }}</span>
+            </li>
+          </sc-for>
+        </ol>
+
+        <p style="margin:clamp(40px,4.5vw,64px) 0 0;font:400 17px/1.68 Manrope,sans-serif;color:#4A4A4A;max-width:62ch">Als Architekten kennen wir den Wert eines Objekts nicht nur am Markt, sondern auch in der Substanz. Diese Doppelsicht bringen wir in jede Vermarktung ein — von der Grundstücksparzelle bis zum Mehrfamilienhaus.</p>
+      </div>
+    </section>
+
+    <section aria-label="Kontakt" style="max-width:1600px;margin:0 auto;padding:clamp(80px,9vw,150px) 40px clamp(90px,10vw,150px);display:flex;flex-direction:column;gap:26px;align-items:flex-start">
+      <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Zusammenarbeit</span>
+      <p style="margin:0;font:300 clamp(26px,3.4vw,50px)/1.14 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:24ch">Sie verkaufen, suchen oder entwickeln?</p>
+      <a href="#" style="display:inline-flex;align-items:center;gap:12px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:8px" style-hover="color:#6B6B6B">
+        <span>Kontakt aufnehmen</span><span style="font:300 15px/1 Manrope,sans-serif">→</span>
+      </a>
+    </section>
+  </main>
+
+
+
+
+
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;menuSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Verhalten&quot;},&quot;listingColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;],&quot;default&quot;:&quot;3&quot;,&quot;tsType&quot;:&quot;2 | 3&quot;,&quot;section&quot;:&quot;Angebote&quot;},&quot;showListings&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Angebote&quot;},&quot;ankaufImageSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;left&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+const LISTINGS = [
+  {
+    key: 'bauland-siselen',
+    name: 'Bauland Dorfmatte',
+    ort: 'Siselen',
+    status: 'Verfügbar',
+    body: 'Sonnige Parzelle in der Wohnzone W2, erschlossen, mit Baubewilligung für ein Doppeleinfamilienhaus.',
+    facts: [['Objekt', 'Bauland'], ['Fläche', '842 m²'], ['Zone', 'W2'], ['Preis', 'auf Anfrage']],
+    src: './uploads/_WE_4278-.jpg',
+    ratio: 0.72
+  },
+  {
+    key: 'mfh-aarberg',
+    name: 'Mehrfamilienhaus Bahnhofstrasse',
+    ort: 'Aarberg',
+    status: 'Reserviert',
+    body: 'Sechs Wohnungen im Ortskern, 2019 gesamtsaniert, vollständig vermietet — als Anlageobjekt zu verkaufen.',
+    facts: [['Objekt', '6 Wohnungen'], ['Baujahr', '1908 / 2019'], ['Rendite', '3.4 %'], ['Preis', 'auf Anfrage']],
+    src: './uploads/_WE_4272-.jpg',
+    ratio: 0.72
+  },
+  {
+    key: 'liegenschaft-taeuffelen',
+    name: 'Liegenschaft mit Scheune',
+    ort: 'Täuffelen',
+    status: 'Verfügbar',
+    body: 'Bauernhaus mit angebauter Scheune und grossem Umschwung. Umnutzungspotenzial für drei Wohneinheiten.',
+    facts: [['Objekt', 'Bauernhaus'], ['Grundstück', '1 640 m²'], ['Potenzial', '3 Wohneinheiten'], ['Preis', 'auf Anfrage']],
+    src: './uploads/_WE_2678-.jpg',
+    ratio: 0.72
+  }
+];
+
+const STEPS = [
+  ['Bewertung', 'Marktwert und Substanz realistisch eingeschätzt'],
+  ['Aufbereitung', 'Unterlagen, Pläne und Bildmaterial'],
+  ['Vermarktung', 'Gezielte Ansprache statt Streuung'],
+  ['Abschluss', 'Begleitung bis zur Beurkundung']
+];
+
+class Component extends DCLogic {
+  state = { w: 1440, hover: null };
+
+  componentDidMount() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.menuOpen !== this.state.menuOpen) document.body.style.overflow = this.state.menuOpen ? 'hidden' : '';
+  }
+  onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); };
+  onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null }); };
+  toggle(k) { this.setState(s => ({ sub: s.sub === k ? null : k })); }
+
+  renderVals() {
+    const w = this.state.w;
+    const mobile = w < 900;
+    const show = this.props.showListings !== false;
+    const cols = mobile ? 1 : (w < 1300 ? 2 : (this.props.listingColumns || 3));
+    const imgLeft = this.props.ankaufImageSide !== 'right';
+    const vertical = w < 1000;
+    const open = !!this.state.menuOpen;
+    const side = this.props.menuSide === 'right' ? 'right' : 'left';
+
+    return {
+      introStyle: {
+        display: 'grid',
+        gridTemplateColumns: mobile ? '1fr' : 'minmax(0,1.35fr) minmax(280px,.65fr)',
+        gap: mobile ? '44px' : 'clamp(48px,6vw,120px)',
+        paddingBottom: 'clamp(20px,3vw,40px)',
+        borderTop: '1px solid rgba(0,0,0,.10)',
+        paddingTop: 'clamp(32px,3.4vw,54px)'
+      },
+      hasListings: show,
+      noListings: !show,
+      countLabel: show ? LISTINGS.length + ' Objekte' : 'Keine Objekte',
+      gridStyle: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(' + cols + ', minmax(0,1fr))',
+        gap: mobile ? '54px' : 'clamp(32px,3.2vw,52px)',
+        paddingTop: 'clamp(40px,4.4vw,64px)'
+      },
+      listings: LISTINGS.map(l => {
+        const on = this.state.hover === l.key;
+        return {
+          name: l.name, ort: l.ort, body: l.body, status: l.status, src: l.src,
+          alt: l.name + ', ' + l.ort + ' — Immobilienangebot, Wüthrich Architekten AG',
+          facts: l.facts.map(([k, v]) => ({ k, v })),
+          enter: () => this.setState({ hover: l.key }),
+          leave: () => this.setState({ hover: null }),
+          mediaStyle: {
+            position: 'relative', width: '100%', aspectRatio: String(1 / l.ratio),
+            overflow: 'hidden', background: '#F4F0E9'
+          },
+          zoomStyle: {
+            position: 'absolute', inset: 0,
+            transform: on ? 'scale(1.045)' : 'none',
+            transition: 'transform 1.1s cubic-bezier(.2,.6,.1,1)'
+          },
+          badgeStyle: {
+            position: 'absolute', top: '18px', left: '18px',
+            padding: '8px 14px',
+            background: 'rgba(252,250,247,.88)',
+            backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+            font: '500 10.5px/1 Manrope, sans-serif', letterSpacing: '.18em',
+            textTransform: 'uppercase', color: l.status === 'Reserviert' ? '#6B6B6B' : '#2E2E2E'
+          }
+        };
+      }),
+      splitStyle: {
+        maxWidth: '1760px', margin: '0 auto',
+        padding: 'clamp(80px,9vw,140px) 40px 0',
+        display: 'grid',
+        gridTemplateColumns: mobile ? '1fr' : 'minmax(0,1.15fr) minmax(0,.85fr)',
+        gap: mobile ? '28px' : 'clamp(40px,5vw,96px)',
+        alignItems: 'center',
+        scrollMarginTop: '120px'
+      },
+      ankaufFigStyle: {
+        margin: 0, order: mobile ? 1 : (imgLeft ? 1 : 2), minWidth: 0,
+        height: mobile ? '56vw' : 'clamp(380px,44vw,660px)', overflow: 'hidden'
+      },
+      ankaufTextStyle: {
+        order: mobile ? 2 : (imgLeft ? 2 : 1), display: 'flex', flexDirection: 'column',
+        gap: '18px', minWidth: 0, paddingTop: mobile ? '4px' : 0
+      },
+      timelineStyle: {
+        margin: 0, padding: 0, listStyle: 'none',
+        display: 'grid',
+        gridTemplateColumns: vertical ? '1fr' : 'repeat(4, minmax(0,1fr))',
+        gap: vertical ? '0' : 'clamp(20px,2.2vw,34px)',
+        borderTop: '1px solid rgba(0,0,0,.14)',
+        borderBottom: vertical ? 'none' : '1px solid rgba(0,0,0,.14)',
+        borderRight: vertical ? 'none' : '1px solid rgba(0,0,0,.14)'
+      },
+      steps: STEPS.map(([name, sub], i) => ({
+        num: String(i + 1).padStart(2, '0'),
+        name, sub,
+        style: {
+          display: 'flex', flexDirection: 'column', gap: '12px',
+          padding: vertical ? '22px 0' : '24px 0 28px',
+          borderBottom: vertical ? '1px solid rgba(0,0,0,.10)' : 'none',
+          borderLeft: vertical ? 'none' : '1px solid rgba(0,0,0,.10)',
+          paddingLeft: vertical ? 0 : 'clamp(16px,1.5vw,24px)',
+          paddingRight: vertical ? 0 : 'clamp(12px,1.1vw,20px)',
+          marginLeft: vertical ? 0 : '-1px'
+        }
+      })),
+      panelStyle: {
+        position: 'fixed', top: 0, bottom: 0, [side]: 0, zIndex: 220,
+        width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+        background: 'rgba(252,250,247,0.72)',
+        backdropFilter: 'blur(26px) saturate(1.1)', WebkitBackdropFilter: 'blur(26px) saturate(1.1)',
+        borderRight: side === 'left' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        borderLeft: side === 'right' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        transform: open ? 'none' : 'translateX(' + (side === 'left' ? '-102%' : '102%') + ')',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      },
+      scrimStyle: {
+        position: 'fixed', inset: 0, zIndex: 210, background: 'rgba(17,17,17,0.18)',
+        opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none', transition: 'opacity .6s ease'
+      },
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggle('leistungen'),
+      toggleUeberUns: () => this.toggle('ueber'),
+      toggleJobs: () => this.toggle('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

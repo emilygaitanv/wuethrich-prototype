@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>Leistungen — Wüthrich Architekten AG</title>
+<meta name="description" content="Planung, Entwicklung, Realisierung: Architektur für Wohn-, Gewerbe-, Industrie- und Landwirtschaftsbauten. Leistungen von Wüthrich Architekten AG im Berner Seeland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7;overflow-x:hidden">
+
+
+
+  <main style="padding:132px 0 0">
+
+    <section aria-labelledby="leistungen-titel" style="max-width:1600px;margin:0 auto;padding:0 40px">
+      <div style="display:flex;flex-direction:column;gap:16px;padding-bottom:clamp(28px,3vw,44px)">
+        <span style="font:500 15px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Leistungen</span>
+        <h1 id="leistungen-titel" style="margin:0;font:300 clamp(28px,4vw,60px)/1.05 Manrope,sans-serif;letter-spacing:-.02em;color:#2E2E2E;white-space:nowrap">Planung. Entwicklung. Realisierung.</h1>
+      </div>
+    </section>
+
+    <div style="border-top:1px solid rgba(0,0,0,.10);border-bottom:1px solid rgba(0,0,0,.10)">
+      <div style="max-width:1600px;margin:0 auto;padding:16px 40px">
+        <nav style="display:flex;align-items:center;gap:34px;flex-wrap:wrap">
+          <a href="#architektur" style="font:500 13px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2E2E2E;white-space:nowrap" style-hover="color:#6B6B6B">Architektur</a>
+          <a href="#prozess" style="font:500 13px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2E2E2E;white-space:nowrap" style-hover="color:#6B6B6B">Planungs- und Bauprozess</a>
+          <a href="./05 Real Estate.dc.html" style="font:500 13px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2E2E2E;white-space:nowrap" style-hover="color:#6B6B6B">Immobilien</a>
+          <a href="./06 Specialties.dc.html" style="font:500 13px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2E2E2E;white-space:nowrap" style-hover="color:#6B6B6B">Spezialgebiete</a>
+        </nav>
+      </div>
+    </div>
+
+    <section aria-label="Einleitung" style="max-width:1600px;margin:0 auto;padding:clamp(40px,5vw,74px) 40px 0">
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:68ch">
+        <p style="margin:0;font:400 clamp(17px,1.35vw,20px)/1.62 Manrope,sans-serif;color:#2E2E2E">Diese drei Bereiche prägen unsere tägliche Arbeit. Wir begleiten Bauprojekte von der ersten Idee bis zur erfolgreichen Umsetzung und entwickeln gemeinsam mit unseren privaten Bauherrschaften und Investoren durchdachte und individuelle Lösungen.</p>
+        <p style="margin:0;font:400 17px/1.68 Manrope,sans-serif;color:#4A4A4A">Unser Tätigkeitsfeld umfasst Wohn-, Gewerbe-, Industrie- und Landwirtschaftsbauten. Ob Neu-, Um- oder Ausbau – jedes Projekt betrachten wir als einzigartige Aufgabe, die wir mit Erfahrung, Kreativität und Engagement angehen.</p>
+        <p style="margin:0;font:400 17px/1.68 Manrope,sans-serif;color:#4A4A4A">Unser Anspruch ist es, hochwertige, funktionale und wirtschaftliche Architektur zu schaffen, die den Bedürfnissen der Bauherrschaft entspricht und langfristigen Mehrwert bietet.</p>
+      </div>
+    </section>
+
+    <section id="architektur" aria-label="Leistungsbereiche" style="max-width:1760px;margin:0 auto;padding:clamp(70px,8vw,130px) 40px 0;display:flex;flex-direction:column;gap:clamp(70px,8vw,140px)">
+      <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="4">
+        <article id="{{ b.id }}" style="{{ b.rowStyle }}">
+          <figure style="{{ b.figStyle }}">
+            <img src="{{ b.src }}" alt="{{ b.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;background:#F4F0E9" />
+          </figure>
+          <div style="{{ b.textStyle }}">
+            <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">{{ b.kicker }}</span>
+            <h2 style="margin:0;font:300 clamp(24px,2.3vw,36px)/1.1 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;white-space:nowrap">{{ b.title }}</h2>
+            <p style="margin:0;max-width:48ch;font:400 17px/1.68 Manrope,sans-serif;color:#4A4A4A">{{ b.body }}</p>
+            <sc-if value="{{ b.hasItems }}" hint-placeholder-val="{{ true }}">
+              <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.10);max-width:460px">
+                <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
+                  <li style="padding:13px 0;border-bottom:1px solid rgba(0,0,0,.10);font:400 15px/1.4 Manrope,sans-serif;color:#2E2E2E">{{ it }}</li>
+                </sc-for>
+              </ul>
+            </sc-if>
+            <sc-if value="{{ b.hasLink }}">
+              <a href="{{ b.href }}" style="display:inline-flex;align-items:center;gap:12px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:8px;align-self:flex-start" style-hover="color:#6B6B6B">
+                <span>{{ b.linkLabel }}</span><span style="font:300 15px/1 Manrope,sans-serif">→</span>
+              </a>
+            </sc-if>
+          </div>
+        </article>
+      </sc-for>
+    </section>
+
+    <section id="prozess" aria-labelledby="prozess-titel" style="margin-top:clamp(90px,10vw,160px);border-top:1px solid rgba(0,0,0,.10);background:#F4F0E9">
+      <div style="max-width:1600px;margin:0 auto;padding:clamp(56px,6vw,96px) 40px clamp(70px,8vw,120px)">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:clamp(40px,4.5vw,68px)">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font:500 15px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Planungs- und Bauprozess</span>
+            <h2 id="prozess-titel" style="margin:0;font:300 clamp(22px,2.4vw,34px)/1.1 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:22ch">Von der Studie bis zur Bauadministration</h2>
+          </div>
+          <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B">Sechs Schritte</span>
+        </div>
+
+        <ol style="{{ timelineStyle }}">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+            <li style="{{ s.style }}">
+              <span style="font:300 clamp(30px,2.8vw,42px)/1 Manrope,sans-serif;color:#B4ADA0">{{ s.num }}</span>
+              <span style="font:500 14px/1.3 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#2E2E2E">{{ s.name }}</span>
+              <span style="font:500 13px/1.4 Manrope,sans-serif;color:#6B6B6B;max-width:26ch">{{ s.sub }}</span>
+              <span style="font:400 14px/1.6 Manrope,sans-serif;color:#8A8378;max-width:30ch">{{ s.desc }}</span>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-label="Kontakt" style="max-width:1600px;margin:0 auto;padding:clamp(80px,9vw,150px) 40px clamp(90px,10vw,150px);display:flex;flex-direction:column;gap:26px;align-items:flex-start">
+      <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Zusammenarbeit</span>
+      <p style="margin:0;font:300 clamp(26px,3.4vw,50px)/1.14 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:24ch">Erzählen Sie uns von Ihrem Vorhaben.</p>
+      <a href="#" style="display:inline-flex;align-items:center;gap:12px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:8px" style-hover="color:#6B6B6B">
+        <span>Kontakt aufnehmen</span><span style="font:300 15px/1 Manrope,sans-serif">→</span>
+      </a>
+    </section>
+  </main>
+
+
+
+
+
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;menuSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Verhalten&quot;},&quot;firstImageSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;left&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;timelineOrientation&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;horizontal&quot;,&quot;vertical&quot;],&quot;default&quot;:&quot;auto&quot;,&quot;tsType&quot;:&quot;'auto' | 'horizontal' | 'vertical'&quot;,&quot;section&quot;:&quot;Prozess&quot;}}">
+const BLOCKS = [
+  {
+    id: 'architektur-neubau',
+    kicker: 'Architektur',
+    title: 'Neubauten',
+    body: 'Vom Landwirtschaftsbau bis zum Mehrfamilienhaus: wir entwickeln Neubauten aus Ort, Programm und Budget – präzise im Grundriss, ruhig im Ausdruck.',
+    items: ['Wohnbauten', 'Gewerbe- und Industriebauten', 'Landwirtschaftsbauten'],
+    src: './uploads/_WE_4266-.jpg',
+    alt: 'Neubau Wohnhaus im Berner Seeland — Projekt von Wüthrich Architekten AG'
+  },
+  {
+    id: 'architektur-umbau',
+    kicker: 'Architektur',
+    title: 'Umbauten und Ausbauten',
+    body: 'Bestehende Bauten weiterbauen: Anbau, Aufstockung oder Umnutzung, sorgfältig an die vorhandene Substanz angeschlossen und auf heutige Nutzung ausgelegt.',
+    items: ['Anbauten und Aufstockungen', 'Umnutzungen', 'Innenausbau'],
+    src: './uploads/_WE_4178-.jpg',
+    alt: 'Umbau Scheune im Berner Seeland — Projekt von Wüthrich Architekten AG'
+  },
+  {
+    id: 'architektur-sanierung',
+    kicker: 'Architektur',
+    title: 'Sanierungen',
+    body: 'Gebäude instand setzen und energetisch verbessern – im Ortsbild verankert, mit Respekt für Material und Detail des Bestands.',
+    items: ['Gesamt- und Teilsanierungen', 'Energetische Erneuerung', 'Bauten im Ortskern'],
+    src: './uploads/_WE_2696-.jpg',
+    alt: 'Sanierung Altstadthaus in Erlach — Projekt von Wüthrich Architekten AG'
+  },
+  {
+    id: 'immobilien',
+    kicker: 'Sub-Seite',
+    title: 'Immobilien',
+    body: 'Entwicklung, Vermarktung und Bewirtschaftung von Liegenschaften – als Ergänzung zur Planung aus einer Hand.',
+    items: [],
+    hasLink: true,
+    linkLabel: 'Zu Immobilien',
+    href: './05 Real Estate.dc.html',
+    src: './uploads/_WE_4287-.jpg',
+    alt: 'Liegenschaft im Berner Seeland — Immobilien, Wüthrich Architekten AG'
+  },
+  {
+    id: 'spezialgebiete',
+    kicker: 'Sub-Seite',
+    title: 'Spezialgebiete',
+    body: 'Feng Shui und Baubiologie fliessen auf Wunsch in Entwurf und Materialisierung ein – für Räume, die gesund sind und stimmig wirken.',
+    items: ['Feng Shui', 'Baubiologie'],
+    hasLink: true,
+    linkLabel: 'Zu Spezialgebiete',
+    href: './06 Specialties.dc.html',
+    src: './uploads/_WE_4152-.jpg',
+    alt: 'Innenraum mit Tageslicht — Spezialgebiete Feng Shui und Baubiologie, Wüthrich Architekten AG'
+  }
+];
+
+const STEPS = [
+  ['Studie', 'Die Basis jedes Projekts', 'Wir klären Bedürfnisse, Machbarkeit und Rahmenbedingungen und legen mit einer ersten Grobkostenschätzung das Fundament für alle weiteren Schritte.'],
+  ['Entwurf', 'Ideen nehmen Gestalt an', 'In Varianten entwickeln wir Grundrisse, Volumen und Materialisierung, bis eine überzeugende, wirtschaftliche Lösung feststeht.'],
+  ['Baugesuch', 'Der Weg zur Bewilligung', 'Wir erstellen die Eingabepläne, koordinieren Fachplaner und begleiten das Bewilligungsverfahren bis zur rechtskräftigen Baubewilligung.'],
+  ['Ausführung', 'Vom Plan zur Realität', 'Detail- und Ausführungspläne, Ausschreibung und Vergabe bereiten die Umsetzung technisch und terminlich präzise vor.'],
+  ['Bauleitung', 'Präzision auf der Baustelle', 'Wir führen die Arbeiten vor Ort, koordinieren Unternehmer und sichern Qualität, Sicherheit und den vereinbarten Standard.'],
+  ['Bauadministration', 'Qualität, Kosten und Termine im Griff', 'Kostenkontrolle, Zahlungswesen und Terminplanung behalten wir bis zur Schlussabrechnung und Übergabe lückenlos im Blick.']
+];
+
+class Component extends DCLogic {
+  state = { w: 1440 };
+
+  componentDidMount() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.menuOpen !== this.state.menuOpen) document.body.style.overflow = this.state.menuOpen ? 'hidden' : '';
+  }
+  onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); };
+  onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null }); };
+  toggle(k) { this.setState(s => ({ sub: s.sub === k ? null : k })); }
+
+  renderVals() {
+    const w = this.state.w;
+    const mobile = w < 900;
+    const startSide = this.props.firstImageSide === 'right' ? 1 : 0;
+    const orient = this.props.timelineOrientation || 'auto';
+    const vertical = orient === 'vertical' || (orient === 'auto' && w < 1100);
+    const open = !!this.state.menuOpen;
+    const side = this.props.menuSide === 'right' ? 'right' : 'left';
+
+    return {
+      introStyle: {
+        display: 'grid',
+        gridTemplateColumns: mobile ? '1fr' : 'minmax(0,1.35fr) minmax(280px,.65fr)',
+        gap: mobile ? '44px' : 'clamp(48px,6vw,120px)',
+        paddingBottom: 'clamp(20px,3vw,40px)',
+        borderTop: '1px solid rgba(0,0,0,.10)',
+        paddingTop: 'clamp(32px,3.4vw,54px)'
+      },
+      blocks: BLOCKS.map((b, i) => {
+        const imgRight = mobile ? false : (i + startSide) % 2 === 1;
+        return {
+          id: b.id, kicker: b.kicker, title: b.title, body: b.body, items: b.items, hasItems: b.items.length > 0,
+          src: b.src, alt: b.alt, hasLink: !!b.hasLink, linkLabel: b.linkLabel || '', href: b.href || '#',
+          rowStyle: {
+            display: 'grid',
+            gridTemplateColumns: mobile ? '1fr' : 'minmax(0,1.15fr) minmax(0,.85fr)',
+            gap: mobile ? '28px' : 'clamp(40px,5vw,96px)',
+            alignItems: 'center',
+            scrollMarginTop: '120px'
+          },
+          figStyle: {
+            margin: 0, order: imgRight ? 2 : 1, minWidth: 0,
+            height: mobile ? '56vw' : 'clamp(380px,44vw,660px)', overflow: 'hidden'
+          },
+          textStyle: {
+            order: imgRight ? 1 : 2, display: 'flex', flexDirection: 'column',
+            gap: '18px', minWidth: 0, paddingTop: mobile ? '4px' : 0
+          }
+        };
+      }),
+      timelineStyle: {
+        margin: 0, padding: 0, listStyle: 'none',
+        display: 'grid',
+        gridTemplateColumns: vertical ? '1fr' : 'repeat(6, minmax(0,1fr))',
+        gap: vertical ? '0' : 'clamp(20px,2.2vw,34px)',
+        borderTop: '1px solid rgba(0,0,0,.14)',
+        borderBottom: vertical ? 'none' : '1px solid rgba(0,0,0,.14)',
+        borderRight: vertical ? 'none' : '1px solid rgba(0,0,0,.14)'
+      },
+      steps: STEPS.map(([name, sub, desc], i) => ({
+        num: String(i + 1).padStart(2, '0'),
+        name, sub, desc,
+        style: {
+          display: 'flex', flexDirection: 'column', gap: '12px',
+          padding: vertical ? '22px 0' : '24px 0 28px',
+          borderBottom: vertical ? '1px solid rgba(0,0,0,.10)' : 'none',
+          borderLeft: vertical ? 'none' : '1px solid rgba(0,0,0,.10)',
+          paddingLeft: vertical ? 0 : 'clamp(16px,1.5vw,24px)',
+          paddingRight: vertical ? 0 : 'clamp(12px,1.1vw,20px)',
+          marginLeft: vertical ? 0 : '-1px'
+        }
+      })),
+
+      panelStyle: {
+        position: 'fixed', top: 0, bottom: 0, [side]: 0, zIndex: 220,
+        width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+        background: 'rgba(252,250,247,0.72)',
+        backdropFilter: 'blur(26px) saturate(1.1)', WebkitBackdropFilter: 'blur(26px) saturate(1.1)',
+        borderRight: side === 'left' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        borderLeft: side === 'right' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        transform: open ? 'none' : 'translateX(' + (side === 'left' ? '-102%' : '102%') + ')',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      },
+      scrimStyle: {
+        position: 'fixed', inset: 0, zIndex: 210, background: 'rgba(17,17,17,0.18)',
+        opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none', transition: 'opacity .6s ease'
+      },
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggle('leistungen'),
+      toggleUeberUns: () => this.toggle('ueber'),
+      toggleJobs: () => this.toggle('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

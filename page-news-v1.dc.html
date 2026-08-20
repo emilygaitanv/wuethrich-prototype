@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>News — Wüthrich Architekten AG</title>
+<meta name="description" content="News von Wüthrich Architekten AG — neue Projekte, bestandene Prüfungen, neue Mitarbeitende und Büroausflüge aus dem Berner Seeland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+  @media (max-width: 720px) {
+    .wa-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7">
+
+
+
+  <section style="max-width:1600px;margin:0 auto;padding:190px 40px 64px;display:flex;flex-direction:column;gap:26px">
+    <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B">Aktuelles</span>
+    <h1 style="margin:0;font:300 clamp(40px,5.2vw,72px)/1.02 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E">News</h1>
+    <p style="margin:0;max-width:34ch;font:300 clamp(19px,1.7vw,26px)/1.35 Manrope,sans-serif;color:#6B6B6B">Was uns beschäftigt: neue Projekte, Menschen im Büro und Momente dazwischen.</p>
+  </section>
+
+  <div style="position:sticky;top:81px;z-index:100;background:rgba(252,250,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid rgba(0,0,0,.10);border-bottom:1px solid rgba(0,0,0,.10)">
+    <div style="max-width:1600px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap">
+      <nav style="display:flex;align-items:center;gap:34px;flex-wrap:wrap">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="5">
+          <button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+      </nav>
+      <span style="font:400 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9A9A9A">{{ countLabel }}</span>
+    </div>
+  </div>
+
+  <main style="max-width:1600px;margin:0 auto;padding:44px 40px 120px">
+    <sc-if value="{{ isEmpty }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:120px 0 140px;text-align:center;animation:fadeUp .5s ease both">
+        <span style="font:300 26px/1.3 Manrope,sans-serif;color:#2E2E2E">Noch keine Beiträge.</span>
+        <span style="font:400 15px/1.6 Manrope,sans-serif;color:#6B6B6B;max-width:44ch">In dieser Rubrik ist derzeit nichts publiziert. Wählen Sie eine andere Rubrik.</span>
+      </div>
+    </sc-if>
+
+    <div class="wa-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px 28px">
+      <sc-for list="{{ items }}" as="n" hint-placeholder-count="9">
+        <article onClick="{{ n.open }}" onMouseEnter="{{ n.enter }}" onMouseLeave="{{ n.leave }}" style="{{ n.tileStyle }}">
+          <div style="{{ n.mediaStyle }}">
+            <div style="{{ n.zoomStyle }}">
+              <sc-if value="{{ n.hasPhoto }}">
+                <img src="{{ n.src }}" alt="{{ n.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+              </sc-if>
+              <sc-if value="{{ n.noPhoto }}" hint-placeholder-val="{{ true }}">
+                <image-slot id="{{ n.slotId }}" shape="rect" fit="cover" placeholder="{{ n.slotHint }}"></image-slot>
+              </sc-if>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding-top:18px">
+            <div style="display:flex;align-items:center;gap:14px">
+              <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">{{ n.cat }}</span>
+              <span style="width:16px;height:1px;background:rgba(0,0,0,.18)"></span>
+              <time datetime="{{ n.iso }}" style="font:400 12px/1 Manrope,sans-serif;letter-spacing:.10em;color:#9A9A9A">{{ n.dateLabel }}</time>
+            </div>
+            <h2 style="{{ n.titleStyle }}">{{ n.title }}</h2>
+            <p style="margin:0;font:400 15px/1.6 Manrope,sans-serif;color:#6B6B6B;max-width:42ch">{{ n.lead }}</p>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ hasMore }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:76px 0 0">
+        <button onClick="{{ loadMore }}" style="background:#FCFAF7;border:1px solid rgba(0,0,0,.14);padding:17px 46px;cursor:pointer;font:500 12px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#2E2E2E;transition:background .3s ease,border-color .3s ease,color .3s ease" style-hover="background:#FFFFFF;border-color:rgba(0,0,0,.42);color:#6B6B6B">Mehr laden</button>
+        <span style="font:400 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9A9A9A">{{ shownLabel }}</span>
+      </div>
+    </sc-if>
+  </main>
+
+
+
+  <div onClick="{{ closeAll }}" style="{{ scrimStyle }}"></div>
+
+  <aside style="{{ readerStyle }}">
+    <div style="display:flex;justify-content:flex-end;padding:26px 56px 0">
+      <button onClick="{{ closeArticle }}" aria-label="Beitrag schliessen" style="width:44px;height:44px;display:grid;place-items:center;background:none;border:1px solid rgba(0,0,0,.14);cursor:pointer;font:300 20px/1 Manrope,sans-serif;color:#2E2E2E" style-hover="border-color:rgba(0,0,0,.4)">×</button>
+    </div>
+    <article style="padding:26px 56px 80px;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">{{ art.cat }}</span>
+        <span style="width:16px;height:1px;background:rgba(0,0,0,.18)"></span>
+        <time datetime="{{ art.iso }}" style="font:400 12px/1 Manrope,sans-serif;letter-spacing:.10em;color:#9A9A9A">{{ art.dateLabel }}</time>
+      </div>
+      <h2 style="margin:0;font:300 clamp(28px,3vw,42px)/1.1 Manrope,sans-serif;color:#2E2E2E">{{ art.title }}</h2>
+      <div style="position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#F4F0E9">
+        <sc-if value="{{ art.hasPhoto }}" hint-placeholder-val="{{ false }}">
+          <img src="{{ art.src }}" alt="{{ art.alt }}" style="width:100%;height:100%;object-fit:cover;display:block">
+        </sc-if>
+        <sc-if value="{{ art.noPhoto }}" hint-placeholder-val="{{ false }}">
+          <image-slot id="{{ art.readerSlotId }}" shape="rect" fit="cover" placeholder="{{ art.slotHint }}"></image-slot>
+        </sc-if>
+      </div>
+      <p style="margin:0;font:400 18px/1.6 Manrope,sans-serif;color:#2E2E2E;max-width:66ch">{{ art.lead }}</p>
+      <p style="margin:0;font:400 17px/1.7 Manrope,sans-serif;color:#6B6B6B;max-width:70ch">{{ art.body }}</p>
+      <div style="display:flex;gap:28px;padding-top:8px;border-top:1px solid rgba(0,0,0,.10)">
+        <button onClick="{{ prevArticle }}" style="{{ prevStyle }}">← Älter</button>
+        <button onClick="{{ nextArticle }}" style="{{ nextStyle }}">Neuer →</button>
+      </div>
+    </article>
+  </aside>
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;batchSize&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:12,&quot;min&quot;:3,&quot;max&quot;:40,&quot;step&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;News&quot;}}">
+const MAX_ITEMS = 20;
+
+const RAW = [
+  ['2026-06-18', 'projekte', 'Baustart Wohnüberbauung Rebacker, Twann',
+   'Am Rebhang über dem Bielersee ist der Aushub für sechs Wohnungen angelaufen.',
+   'Nach zwei Jahren Planung und einem sorgfältigen Bewilligungsverfahren hat die Bauherrschaft grünes Licht gegeben. Die Überbauung staffelt sich in drei Volumen den Hang hinauf, so bleibt jeder Wohnung der Blick auf den See. Bezugstermin ist Frühling 2028.',
+   './uploads/_WE_4367-.jpg'],
+  ['2026-05-27', 'ausfluege', 'Büroausflug: zwei Tage Engadin',
+   'Wandern, Baukultur schauen, viel reden — unser Teamausflug führte ins Oberengadin.',
+   'Freitagmorgen mit dem Zug los, Samstagabend wieder zurück. Zwischen Sils und Soglio haben wir Ställe, Sgraffito-Fassaden und den Neubau eines Kollegen besichtigt. Am Abend gab es Capuns und eine lange Diskussion über Holz im Bestand.',
+   './uploads/_WE_2670-.jpg'],
+  ['2026-04-14', 'mitarbeiter', 'Nadine Blaser verstärkt die Bauleitung',
+   'Seit April ergänzt Nadine Blaser unser Team als Bauleiterin.',
+   'Nadine Blaser bringt zwölf Jahre Erfahrung aus Umbauten im bewohnten Zustand mit und übernimmt bei uns die Bauleitung für zwei laufende Sanierungen. Sie ist in Aarberg aufgewachsen — Ortskenntnis inklusive.',
+   null],
+  ['2026-03-09', 'pruefung', 'Lena Roth ist diplomierte Bauleiterin',
+   'Bestanden — und das mit einer Diplomarbeit über Sanierungen im Bestand.',
+   'Zwei Jahre Weiterbildung neben der Arbeit, jetzt das Diplom. Ihre Arbeit untersuchte, wie sich Sanierungsetappen in bewohnten Mehrfamilienhäusern planen lassen, ohne die Mieterschaft auszuquartieren. Wir gratulieren herzlich.',
+   null],
+  ['2026-02-02', 'projekte', 'Neues Mandat: Erweiterung Gemeindehaus Schüpfen',
+   'Die Gemeinde Schüpfen hat uns mit der Erweiterung ihres Gemeindehauses beauftragt.',
+   'Der Bestand aus den 1960er-Jahren wird nicht ersetzt, sondern ergänzt: ein schlanker Anbau nach Süden schafft Platz für Schalter und Sitzungszimmer, das bestehende Treppenhaus bleibt das Herz des Gebäudes.',
+   './uploads/_WE_4424-.jpg'],
+  ['2025-12-19', 'ausfluege', 'Weihnachtsessen im Bielersee-Rebberg',
+   'Fondue, Jahresrückblick und ein Rundgang durch drei fertige Bauten.',
+   'Bevor gegessen wurde, sind wir gemeinsam durch die drei diesjährigen Fertigstellungen gelaufen. Danach: Fondue in Twann und die traditionelle Bilderrunde mit den schlechtesten Baustellenfotos des Jahres.',
+   null],
+  ['2025-11-11', 'projekte', 'Amtshaus Aarberg — Sanierung abgeschlossen',
+   'Nach 18 Monaten ist das Amtshaus wieder in Betrieb.',
+   'Die Fassade wurde instandgestellt, die Fenster nach historischem Vorbild ersetzt und die Haustechnik vollständig erneuert. Die Gerichtssäle im Obergeschoss haben ihre ursprüngliche Raumhöhe zurückerhalten.',
+   './uploads/_WE_4346.jpg'],
+  ['2025-10-06', 'mitarbeiter', 'Tim Gerber beginnt seine Lehre',
+   'Neuer Lernender Zeichner EFZ Fachrichtung Architektur.',
+   'Tim Gerber hat im August seine vierjährige Lehre bei uns begonnen. Er arbeitet von Anfang an im Projektteam mit — erste Aufgabe: Bestandsaufnahme eines Bauernhauses in Kappelen.',
+   null],
+  ['2025-09-15', 'pruefung', 'Marc Lüthi besteht die Feng-Shui-Zertifizierung',
+   'Unser Spezialgebiet hat Verstärkung: Marc Lüthi ist zertifizierter Berater.',
+   'Die Ausbildung umfasste 180 Stunden und schloss mit einer Fallstudie zu einem Einfamilienhaus in Täuffelen ab. Damit können wir Feng-Shui-Beratung durchgehend intern anbieten.',
+   null],
+  ['2025-08-21', 'projekte', 'Werkhalle Industriering Kallnach übergeben',
+   'Eine Halle mit 1400 m² Nutzfläche — und einer Holzkonstruktion, die man sieht.',
+   'Statt eines Stahlbaus haben wir eine sichtbare Brettschichtholz-Konstruktion vorgeschlagen. Die Bauherrschaft hat mitgemacht, obwohl es ungewohnt war. Das Ergebnis ist eine Werkhalle, in der man gerne arbeitet.',
+   './uploads/IMG_3307.jpg'],
+  ['2025-07-04', 'ausfluege', 'Sommerfest mit Familien in Gerolfingen',
+   'Grillieren am See, Kinder im Wasser, Bürohunde im Schatten.',
+   'Einmal im Sommer laden wir alle Angehörigen ein. Dieses Jahr am Seeufer bei Gerolfingen — mit Grill, Boot und einem Wettbewerb im Turmbauen aus Bauklötzen, der ernster wurde als geplant.',
+   './uploads/_WE_2678-.jpg'],
+  ['2025-05-28', 'mitarbeiter', 'Sarah Kunz übernimmt die Immobilienbewirtschaftung',
+   'Ab Juni verantwortet Sarah Kunz unsere Verwaltungsmandate.',
+   'Sarah Kunz ist eidg. dipl. Immobilienbewirtschafterin und war zuvor zehn Jahre in Biel tätig. Sie ist die neue Ansprechperson für Eigentümerinnen und Mieterschaft.',
+   null],
+  ['2025-04-08', 'projekte', 'Baueingabe Kindergarten Hofmatt, Grossaffoltern',
+   'Ein eingeschossiger Holzbau um einen geschützten Aussenraum.',
+   'Der Kindergarten fasst zwei Abteilungen und legt sich L-förmig um einen Hof. Alle Räume sind direkt nach draussen orientiert, das weit vorgezogene Dach dient als Wetterschutz und Spielfläche.',
+   './uploads/_WE_4178-.jpg'],
+  ['2025-02-17', 'pruefung', 'Zwei bestandene Abschlussprüfungen',
+   'Jael Wyss und Fabio Renz haben ihre Lehre als Zeichner EFZ abgeschlossen.',
+   'Beide bleiben dem Büro erhalten: Jael Wyss steigt ins Projektteam ein, Fabio Renz begleitet eine Baustelle in Lyss. Wir sind stolz auf zwei starke Abschlüsse.',
+   null],
+  ['2024-12-12', 'ausfluege', 'Exkursion Baubiologie in Freiburg im Breisgau',
+   'Ein Tag zwischen Lehmputz, Zellulose und ehrlichen Detailschnitten.',
+   'Fünf Mitarbeitende haben Fachvorträge zu schadstofffreiem Bauen besucht und danach zwei Wohnbauten in Strohbauweise besichtigt. Einiges davon fliesst direkt in unsere laufenden Projekte ein.',
+   null],
+  ['2024-10-23', 'projekte', 'Atelierhaus Seematte, Nidau — bezogen',
+   'Vier Ateliers, ein gemeinsamer Hof, eine sehr geduldige Bauherrschaft.',
+   'Das Atelierhaus ersetzt eine Garagenzeile am Rand der Seematte. Die Ateliers lassen sich zusammenschalten oder trennen — das Erdgeschoss ist bewusst roh belassen.',
+   './uploads/_WE_4266-.jpg'],
+  ['2024-09-05', 'mitarbeiter', 'Elias Frei ergänzt das Projektteam',
+   'Architekt MSc, zuvor in Zürich, seit September im Seeland.',
+   'Elias Frei hat an der ETH studiert und vier Jahre in einem Zürcher Büro gearbeitet. Bei uns betreut er die Wohnüberbauung Bielstrasse in Bargen von der Ausschreibung bis zur Ausführung.',
+   null],
+  ['2024-07-16', 'projekte', 'Umbau Bauernhaus Chräjeloch, Kappelen',
+   'Aus Stall wird Wohnraum — ohne dass man das Haus verliert.',
+   'Der Wohnteil bleibt weitgehend original, der Ökonomieteil erhält eine eingestellte Holzstruktur mit zwei Wohnungen. Die alte Fassade behält ihre Öffnungen; neues Glas sitzt dahinter zurückversetzt.',
+   './uploads/_WE_4304-.jpg'],
+  ['2024-05-14', 'pruefung', 'Anna Steiner ist eidg. dipl. Architektin',
+   'Nachdiplomstudium abgeschlossen, Fachrichtung Bauen im Bestand.',
+   'Anna Steiner hat ihre Diplomarbeit über die energetische Sanierung von Altstadthäusern geschrieben — ein Thema, das in Erlach und Aarberg direkt auf unserem Tisch liegt.',
+   null],
+  ['2024-03-20', 'ausfluege', 'Skitag auf dem Chasseral',
+   'Frühstart, Nebelmeer, und ein Büro, das sich einmal draussen sieht.',
+   'Ein Tag Langlauf und Schneeschuhwandern auf dem Chasseral, Znüni aus dem Rucksack, Suppe in der Métairie. Kein Programm, keine Präsentationen — nur einmal alle zusammen im Schnee.',
+   './uploads/_WE_2696-.jpg']
+];
+
+const CATS = [
+  ['alle', 'Alle'],
+  ['projekte', 'Neue Projekte'],
+  ['pruefung', 'Bestandene Prüfung'],
+  ['mitarbeiter', 'Neuer Mitarbeiter'],
+  ['ausfluege', 'Büroausflüge']
+];
+const CAT_LABEL = {
+  projekte: 'Neues Projekt', pruefung: 'Bestandene Prüfung',
+  mitarbeiter: 'Neuer Mitarbeiter', ausfluege: 'Büroausflug'
+};
+const MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+
+// newest first, then the automatic 20-item cap (oldest fall off)
+const ALL = RAW
+  .map((n, i) => ({
+    key: 'n' + i, iso: n[0], catId: n[1], title: n[2], lead: n[3], body: n[4], src: n[5],
+    slotId: 'wa-news-' + i,
+    dateLabel: (() => { const d = n[0].split('-'); return Number(d[2]) + '. ' + MONTHS[Number(d[1]) - 1] + ' ' + d[0]; })()
+  }))
+  .sort((a, b) => (a.iso < b.iso ? 1 : -1))
+;
+
+class Component extends DCLogic {
+  state = { cat: 'alle', hover: null, open: null, menuOpen: false, sub: null, limit: null };
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null, open: null }); };
+  componentDidUpdate(pp, ps) {
+    const lock = this.state.menuOpen || this.state.open !== null;
+    const wasLock = ps.menuOpen || ps.open !== null;
+    if (lock !== wasLock) {
+      document.body.style.overflow = lock ? 'hidden' : '';
+      if (lock) document.addEventListener('keydown', this.onKey);
+      else document.removeEventListener('keydown', this.onKey);
+    }
+  }
+  toggle(k) { this.setState(s => ({ sub: s.sub === k ? null : k })); }
+
+  chip(active) {
+    return {
+      background: 'none', border: 0, padding: '4px 0', cursor: 'pointer',
+      font: (active ? 500 : 400) + ' 13px/1 Manrope, sans-serif',
+      letterSpacing: '.16em', textTransform: 'uppercase',
+      color: active ? '#2E2E2E' : '#9A9A9A', whiteSpace: 'nowrap',
+      borderBottom: '1px solid ' + (active ? '#2E2E2E' : 'transparent'),
+      transition: 'color .3s ease, border-color .3s ease'
+    };
+  }
+  navBtn() {
+    return {
+      background: 'none', border: 0, padding: '18px 0 0', cursor: 'pointer',
+      font: '500 12px/1 Manrope, sans-serif', letterSpacing: '.16em',
+      textTransform: 'uppercase', color: '#6B6B6B', transition: 'color .3s ease'
+    };
+  }
+
+  renderVals() {
+    const { cat, hover, open } = this.state;
+    const all = ALL.filter(n => cat === 'alle' || n.catId === cat);
+    const batch = Math.max(1, Math.round(this.props.batchSize ?? 20));
+    const limit = this.state.limit ?? batch;
+    const list = all.slice(0, limit);
+    const openIdx = open === null ? -1 : ALL.findIndex(n => n.key === open);
+    const cur = openIdx >= 0 ? ALL[openIdx] : ALL[0];
+    const menu = this.state.menuOpen;
+    const reader = openIdx >= 0;
+
+    return {
+      items: list.map(n => {
+        const on = hover === n.key;
+        return {
+          key: n.key, cat: CAT_LABEL[n.catId], iso: n.iso, dateLabel: n.dateLabel,
+          title: n.title, lead: n.lead,
+          src: n.src, hasPhoto: !!n.src, noPhoto: !n.src, slotId: n.slotId,
+          alt: n.title + ' — Wüthrich Architekten AG',
+          slotHint: CAT_LABEL[n.catId] + ' — ' + n.title,
+          enter: () => this.setState({ hover: n.key }),
+          leave: () => this.setState({ hover: null }),
+          open: () => this.setState({ open: n.key, hover: null }),
+          tileStyle: { display: 'block', cursor: 'pointer' },
+          mediaStyle: { position: 'relative', width: '100%', aspectRatio: '4 / 3', overflow: 'hidden', background: '#F4F0E9' },
+          zoomStyle: {
+            position: 'absolute', inset: 0,
+            transform: on ? 'scale(1.045)' : 'none',
+            transition: 'transform 1.1s cubic-bezier(.2,.6,.1,1)'
+          },
+          titleStyle: {
+            margin: 0, font: '400 clamp(19px,1.5vw,23px)/1.25 Manrope, sans-serif',
+            color: on ? '#6B6B6B' : '#2E2E2E', maxWidth: '26ch', transition: 'color .35s ease'
+          }
+        };
+      }),
+      isEmpty: all.length === 0,
+      countLabel: all.length + (all.length === 1 ? ' Beitrag' : ' Beiträge'),
+      hasMore: all.length > list.length,
+      shownLabel: list.length + ' von ' + all.length,
+      loadMore: () => this.setState(st => ({ limit: (st.limit ?? batch) + batch })),
+      cats: CATS.map(([id, label]) => ({
+        label, style: this.chip(cat === id), pick: () => this.setState({ cat: id, limit: null })
+      })),
+      art: {
+        cat: CAT_LABEL[cur.catId], iso: cur.iso, dateLabel: cur.dateLabel,
+        title: cur.title, lead: cur.lead, body: cur.body,
+        src: cur.src, hasPhoto: !!cur.src, noPhoto: !cur.src,
+        readerSlotId: cur.slotId + '-full',
+        alt: cur.title + ' — Wüthrich Architekten AG',
+        slotHint: CAT_LABEL[cur.catId] + ' — ' + cur.title
+      },
+      prevStyle: Object.assign(this.navBtn(), { opacity: openIdx < ALL.length - 1 ? 1 : .3 }),
+      nextStyle: Object.assign(this.navBtn(), { opacity: openIdx > 0 ? 1 : .3 }),
+      prevArticle: () => { if (openIdx < ALL.length - 1) this.setState({ open: ALL[openIdx + 1].key }); },
+      nextArticle: () => { if (openIdx > 0) this.setState({ open: ALL[openIdx - 1].key }); },
+      closeArticle: () => this.setState({ open: null }),
+      closeAll: () => this.setState({ open: null, menuOpen: false, sub: null }),
+      readerStyle: {
+        position: 'fixed', top: 0, bottom: 0, right: 0, zIndex: 230,
+        width: 'min(58vw, 780px)', display: 'flex', flexDirection: 'column',
+        background: '#FCFAF7', borderLeft: '1px solid rgba(0,0,0,0.10)',
+        transform: reader ? 'none' : 'translateX(102%)',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      },
+      panelStyle: {
+        position: 'fixed', top: 0, bottom: 0, right: 0, zIndex: 240,
+        width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+        background: 'rgba(252,250,247,0.72)',
+        backdropFilter: 'blur(26px) saturate(1.1)', WebkitBackdropFilter: 'blur(26px) saturate(1.1)',
+        borderLeft: '1px solid rgba(0,0,0,0.10)',
+        transform: menu ? 'none' : 'translateX(102%)',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      },
+      scrimStyle: {
+        position: 'fixed', inset: 0, zIndex: 210, background: 'rgba(17,17,17,0.18)',
+        opacity: (menu || reader) ? 1 : 0, pointerEvents: (menu || reader) ? 'auto' : 'none',
+        transition: 'opacity .6s ease'
+      },
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggle('leistungen'),
+      toggleUeberUns: () => this.toggle('ueber'),
+      toggleJobs: () => this.toggle('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs'
+    };
+  }
+}
+</script>
+</body>
+</html>

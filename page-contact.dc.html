@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>Kontakt — Wüthrich Architekten AG</title>
+<meta name="description" content="Kontakt, Lageplan, Öffnungszeiten und Anreise — Wüthrich Architekten AG in Aarberg, ab 2026 in Sutz am Bielersee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://www.wuethrich-architekten.ch/#office","name":"Wüthrich Architekten AG","description":"Architekturbüro im Berner Seeland — Neubau, Umbau, Bauleitung und Immobilien.","url":"https://www.wuethrich-architekten.ch/","email":"info@wuethrich-architekten.ch","telephone":"+41 32 392 00 00","image":"https://www.wuethrich-architekten.ch/og.jpg","address":{"@type":"PostalAddress","streetAddress":"Bahnhofstrasse 12","postalCode":"3270","addressLocality":"Aarberg","addressRegion":"BE","addressCountry":"CH"},"geo":{"@type":"GeoCoordinates","latitude":47.0447,"longitude":7.2761},"openingHoursSpecification":[
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"12:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"13:30","closes":"17:30"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"08:00","closes":"12:00"},
+{"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"13:30","closes":"16:00"}],
+"areaServed":"Berner Seeland","location":{"@type":"Place","name":"Wüthrich Architekten AG — Standort ab 2026","address":{"@type":"PostalAddress","streetAddress":"Seestrasse 4","postalCode":"2572","addressLocality":"Sutz","addressRegion":"BE","addressCountry":"CH"}}}
+</script>
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  input, textarea, select, button { font-family: Manrope, system-ui, sans-serif; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+  @media (max-width: 980px) {
+    .wa-split { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .wa-map { order: -1; }
+    .wa-two { grid-template-columns: 1fr !important; gap: 26px !important; }
+    .wa-intro { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .wa-foot { grid-template-columns: 1fr !important; }
+  }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7">
+
+
+
+  <section class="wa-intro" style="max-width:1600px;margin:0 auto;padding:190px 40px 72px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <h1 style="margin:0;font:300 clamp(40px,5.2vw,72px)/1.02 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E">Kontakt</h1>
+      <p style="margin:0;max-width:30ch;font:300 clamp(21px,2vw,30px)/1.28 Manrope,sans-serif;color:#2E2E2E">Kommen Sie vorbei — oder rufen Sie an.</p>
+    </div>
+    <p style="margin:0;max-width:64ch;font:400 17px/1.7 Manrope,sans-serif;color:#6B6B6B">Unser Büro liegt mitten im Berner Seeland, wenige Schritte vom Bahnhof Aarberg. Ein erstes Gespräch ist unverbindlich: erzählen Sie uns von Ihrem Grundstück, Ihrem Haus oder Ihrer Idee — wir sagen Ihnen offen, was daraus werden kann. Ab Sommer 2026 empfangen wir Sie an unserem neuen Standort in Sutz am Bielersee.</p>
+  </section>
+
+  <main style="max-width:1600px;margin:0 auto;padding:0 40px 40px;display:flex;flex-direction:column;gap:112px">
+
+    <section class="wa-split" style="display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:start;border-top:1px solid rgba(0,0,0,.10);padding-top:56px">
+
+      <div class="wa-map" style="display:flex;flex-direction:column;gap:16px">
+        <div style="position:relative;width:100%;aspect-ratio:{{ mapRatio }};overflow:hidden;background:#F4F0E9">
+          <image-slot id="wa-contact-map" shape="rect" fit="cover" placeholder="Lageplan / Kartenausschnitt Aarberg"></image-slot>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <span style="font:400 13px/1.5 Manrope,sans-serif;color:#9A9A9A">Bahnhofstrasse 12, 3270 Aarberg — Parkplätze hinter dem Haus</span>
+          <a href="{{ mapsLink }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#2E2E2E;border-bottom:1px solid rgba(0,0,0,.18);padding:4px 0" style-hover="color:#6B6B6B">
+            <span>Route öffnen</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:44px">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Adresse</span>
+          <address style="font:400 18px/1.7 Manrope,sans-serif;color:#2E2E2E;font-style:normal">
+            Wüthrich Architekten AG<br>
+            Bahnhofstrasse 12<br>
+            3270 Aarberg<br>
+            Schweiz
+          </address>
+        </div>
+
+        <div class="wa-two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;border-top:1px solid rgba(0,0,0,.10);padding-top:28px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Telefon</span>
+            <a href="tel:+41323920000" style="font:400 17px/1.5 Manrope,sans-serif;color:#2E2E2E" style-hover="color:#6B6B6B">+41 32 392 00 00</a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">E-Mail</span>
+            <a href="mailto:info@wuethrich-architekten.ch" style="font:400 17px/1.5 Manrope,sans-serif;color:#2E2E2E;word-break:break-word" style-hover="color:#6B6B6B">info@wuethrich-architekten.ch</a>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px;border-top:1px solid rgba(0,0,0,.10);padding-top:28px">
+          <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Öffnungszeiten</span>
+          <dl style="margin:0;display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ hours }}" as="h" hint-placeholder-count="3">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:1px solid rgba(0,0,0,.06);padding-bottom:11px">
+                <dt style="font:400 16px/1.4 Manrope,sans-serif;color:#2E2E2E">{{ h.day }}</dt>
+                <dd style="margin:0;font:400 16px/1.4 Manrope,sans-serif;color:#6B6B6B;text-align:right">{{ h.time }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+          <p style="margin:0;font:400 14px/1.6 Manrope,sans-serif;color:#9A9A9A;max-width:44ch">Termine ausserhalb der Bürozeiten sind nach Absprache möglich — auch abends und samstags.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wa-split" style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start;border-top:1px solid rgba(0,0,0,.10);padding-top:56px">
+      <h2 style="margin:0;font:400 clamp(26px,2.6vw,34px)/1.1 Manrope,sans-serif;color:#2E2E2E;max-width:18ch">Anreise</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px">
+        <sc-for list="{{ travel }}" as="t" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B">{{ t.label }}</span>
+            <p style="margin:0;font:400 16px/1.7 Manrope,sans-serif;color:#6B6B6B">{{ t.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section class="wa-split" style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start;border-top:1px solid rgba(0,0,0,.10);padding-top:56px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Ab 2026</span>
+        <h2 style="margin:0;font:400 clamp(26px,2.6vw,34px)/1.1 Manrope,sans-serif;color:#2E2E2E;max-width:18ch">Neuer Standort in Sutz</h2>
+      </div>
+      <div class="wa-two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <p style="margin:0;font:400 16px/1.7 Manrope,sans-serif;color:#6B6B6B;max-width:52ch">Im Sommer 2026 ziehen wir nach Sutz am Bielersee — näher am See, mit mehr Platz für Modellbau, Materialien und Besprechungen. Telefonnummer und E-Mail-Adressen bleiben unverändert.</p>
+          <address style="font:400 17px/1.7 Manrope,sans-serif;color:#2E2E2E;font-style:normal;border-top:1px solid rgba(0,0,0,.10);padding-top:20px">
+            Seestrasse 4<br>
+            2572 Sutz-Lattrigen<br>
+            ab August 2026
+          </address>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:4 / 3;overflow:hidden;background:#F4F0E9">
+          <img src="./uploads/_WE_4367-.jpg" alt="Neuer Standort Sutz-Lattrigen am Bielersee — Wüthrich Architekten AG" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+      <section class="wa-split" style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start;border-top:1px solid rgba(0,0,0,.10);padding-top:56px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <h2 style="margin:0;font:400 clamp(26px,2.6vw,34px)/1.1 Manrope,sans-serif;color:#2E2E2E;max-width:18ch">Schreiben Sie uns</h2>
+          <p style="margin:0;font:400 16px/1.7 Manrope,sans-serif;color:#6B6B6B;max-width:40ch">Wir antworten innerhalb von zwei Arbeitstagen. Für dringende Anliegen rufen Sie uns besser an.</p>
+        </div>
+        <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:30px;max-width:720px">
+          <div class="wa-two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px">
+            <label style="display:flex;flex-direction:column;gap:10px">
+              <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Name</span>
+              <input type="text" name="name" required placeholder="Vor- und Nachname" style="border:0;border-bottom:1px solid rgba(0,0,0,.18);background:none;padding:10px 0;min-height:44px;font:400 16px/1.4 Manrope,sans-serif;color:#2E2E2E;outline:none" style-focus="border-bottom-color:#2E2E2E">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:10px">
+              <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">E-Mail</span>
+              <input type="email" name="email" required placeholder="name@beispiel.ch" style="border:0;border-bottom:1px solid rgba(0,0,0,.18);background:none;padding:10px 0;min-height:44px;font:400 16px/1.4 Manrope,sans-serif;color:#2E2E2E;outline:none" style-focus="border-bottom-color:#2E2E2E">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:10px">
+              <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Telefon (optional)</span>
+              <input type="tel" name="phone" placeholder="+41 79 000 00 00" style="border:0;border-bottom:1px solid rgba(0,0,0,.18);background:none;padding:10px 0;min-height:44px;font:400 16px/1.4 Manrope,sans-serif;color:#2E2E2E;outline:none" style-focus="border-bottom-color:#2E2E2E">
+            </label>
+            <label style="display:flex;flex-direction:column;gap:10px">
+              <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Anliegen</span>
+              <select name="topic" style="border:0;border-bottom:1px solid rgba(0,0,0,.18);background:none;padding:10px 0;min-height:44px;font:400 16px/1.4 Manrope,sans-serif;color:#2E2E2E;outline:none;border-radius:0" style-focus="border-bottom-color:#2E2E2E">
+                <option>Neubau</option>
+                <option>Umbau oder Sanierung</option>
+                <option>Bauleitung</option>
+                <option>Immobilien</option>
+                <option>Feng Shui / Baubiologie</option>
+                <option>Anderes</option>
+              </select>
+            </label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:10px">
+            <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">Nachricht</span>
+            <textarea name="message" rows="5" required placeholder="Worum geht es? Ort, Grundstück, Zeitrahmen." style="border:0;border-bottom:1px solid rgba(0,0,0,.18);background:none;padding:10px 0;font:400 16px/1.6 Manrope,sans-serif;color:#2E2E2E;outline:none;resize:vertical" style-focus="border-bottom-color:#2E2E2E"></textarea>
+          </label>
+          <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;padding-top:4px">
+            <button type="submit" style="display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:12px 26px;background:#2E2E2E;color:#FCFAF7;border:0;cursor:pointer;font:500 12px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase" style-hover="background:#6B6B6B">
+              <span>Nachricht senden</span>
+              <span>→</span>
+            </button>
+            <span style="{{ noteStyle }}">{{ note }}</span>
+          </div>
+        </form>
+      </section>
+    </sc-if>
+
+  </main>
+
+
+
+
+
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showForm&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Inhalt&quot;},&quot;mapRatio&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;16 / 10&quot;,&quot;4 / 3&quot;,&quot;1 / 1&quot;],&quot;default&quot;:&quot;16 / 10&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Layout&quot;}}">
+const HOURS = [
+  ['Montag – Donnerstag', '08.00 – 12.00 · 13.30 – 17.30'],
+  ['Freitag', '08.00 – 12.00 · 13.30 – 16.00'],
+  ['Samstag / Sonntag', 'geschlossen']
+];
+
+const TRAVEL = [
+  ['Mit dem Zug', 'Ab Bern oder Biel bis Bahnhof Aarberg, danach vier Minuten zu Fuss durch die Altstadtgasse.'],
+  ['Mit dem Auto', 'A1 Ausfahrt Kirchberg oder Lyss, dann Richtung Aarberg. Besucherparkplätze hinter dem Bürogebäude.'],
+  ['Mit dem Velo', 'Direkt am Seeland-Radweg. Abstellplätze und Ladestation im Innenhof.']
+];
+
+class Component extends DCLogic {
+  state = { menuOpen: false, sub: null, sent: false };
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null }); };
+  componentDidUpdate(pp, ps) {
+    if (this.state.menuOpen !== ps.menuOpen) {
+      document.body.style.overflow = this.state.menuOpen ? 'hidden' : '';
+      if (this.state.menuOpen) document.addEventListener('keydown', this.onKey);
+      else document.removeEventListener('keydown', this.onKey);
+    }
+  }
+  toggleSub(k) { this.setState(s => ({ sub: s.sub === k ? null : k })); }
+
+  renderVals() {
+    const menu = this.state.menuOpen;
+    const sent = this.state.sent;
+    return {
+      hours: HOURS.map(h => ({ key: h[0], day: h[0], time: h[1] })),
+      travel: TRAVEL.map(t => ({ key: t[0], label: t[0], text: t[1] })),
+      mapRatio: this.props.mapRatio || '16 / 10',
+      mapsLink: 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent('Bahnhofstrasse 12, 3270 Aarberg, Schweiz'),
+      showForm: this.props.showForm !== false,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      note: sent ? 'Danke — wir melden uns innerhalb von zwei Arbeitstagen.' : 'Oder direkt: info@wuethrich-architekten.ch',
+      noteStyle: {
+        font: '400 15px/1.5 Manrope, sans-serif',
+        color: sent ? '#2E2E2E' : '#9A9A9A',
+        transition: 'color .3s ease'
+      },
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggleSub('leistungen'),
+      toggleUeberUns: () => this.toggleSub('ueber'),
+      toggleJobs: () => this.toggleSub('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs',
+      scrimStyle: {
+        position: 'fixed', inset: 0, zIndex: 210, background: 'rgba(17,17,17,0.18)',
+        opacity: menu ? 1 : 0, pointerEvents: menu ? 'auto' : 'none',
+        transition: 'opacity .6s ease'
+      },
+      panelStyle: {
+        position: 'fixed', top: 0, bottom: 0, right: 0, zIndex: 240,
+        width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+        background: 'rgba(252,250,247,0.72)',
+        backdropFilter: 'blur(26px) saturate(1.1)', WebkitBackdropFilter: 'blur(26px) saturate(1.1)',
+        borderLeft: '1px solid rgba(0,0,0,0.10)',
+        transform: menu ? 'none' : 'translateX(102%)',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

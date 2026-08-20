@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>Umbau Amthaus, Aarberg — Wüthrich Architekten AG</title>
+<meta name="description" content="Umbau Amthaus Aarberg — öffentliches Gebäude, Massivbau, 7'200 m³. Projekt von Wüthrich Architekten AG im Berner Seeland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+  .wa-scroll::-webkit-scrollbar { height: 0; width: 0; }
+  .wa-scroll { scrollbar-width: none; }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7;overflow-x:hidden">
+
+
+
+  <main style="padding:132px 0 0">
+
+    <article style="{{ layoutStyle }}">
+
+      <div style="{{ infoColStyle }}">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">{{ kicker }}</span>
+          <h1 style="margin:0;font:300 clamp(32px,3.1vw,50px)/1.06 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E;max-width:18ch">{{ title }}</h1>
+          <span style="font:500 13px/1 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6B6B6B">{{ ortLabel }}</span>
+        </div>
+
+        <dl style="margin:0;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(0,0,0,.10);max-width:420px">
+          <sc-for list="{{ meta }}" as="m" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:120px 1fr;gap:20px;padding:15px 0;border-bottom:1px solid rgba(0,0,0,.10)">
+              <dt style="margin:0;font:500 11px/1.4 Manrope,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9A9A9A">{{ m.label }}</dt>
+              <dd style="margin:0;font:400 15px/1.4 Manrope,sans-serif;color:#2E2E2E">{{ m.value }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+
+        <p style="margin:0;max-width:46ch;font:400 17px/1.65 Manrope,sans-serif;color:#4A4A4A">{{ description }}</p>
+
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="font:500 11px/1 Manrope,sans-serif;letter-spacing:.20em;text-transform:uppercase;color:#9A9A9A">Teilen</span>
+          <div style="display:flex;gap:10px">
+            <a href="#" aria-label="Per E-Mail teilen" style="display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(0,0,0,.10);border-radius:50%;font:500 10px/1 Manrope,sans-serif;letter-spacing:.06em;color:#6B6B6B" style-hover="border-color:rgba(0,0,0,.35);color:#2E2E2E">@</a>
+            <a href="#" aria-label="Auf Facebook teilen" style="display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(0,0,0,.10);border-radius:50%;font:500 10px/1 Manrope,sans-serif;letter-spacing:.06em;color:#6B6B6B" style-hover="border-color:rgba(0,0,0,.35);color:#2E2E2E">FB</a>
+            <a href="#" aria-label="Auf LinkedIn teilen" style="display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(0,0,0,.10);border-radius:50%;font:500 10px/1 Manrope,sans-serif;letter-spacing:.06em;color:#6B6B6B" style-hover="border-color:rgba(0,0,0,.35);color:#2E2E2E">LI</a>
+          </div>
+        </div>
+      </div>
+
+      <section aria-label="Projektgalerie" style="{{ galSectionStyle }}">
+        <div ref="{{ galRef }}" onScroll="{{ onGalScroll }}" class="wa-scroll" style="{{ galStyle }}">
+          <sc-for list="{{ slides }}" as="s" hint-placeholder-count="4">
+            <figure style="{{ s.figStyle }}">
+              <img src="{{ s.src }}" alt="{{ s.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;background:#F4F0E9" />
+            </figure>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 40px 0 0">
+          <span style="font:400 12px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A">{{ shotCaption }}</span>
+          <div style="display:flex;align-items:center;gap:22px">
+            <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.16em;color:#6B6B6B">{{ shotCounter }}</span>
+            <div style="display:flex;gap:8px">
+              <button onClick="{{ imgPrev }}" aria-label="Vorheriges Bild" style="width:42px;height:42px;display:grid;place-items:center;background:none;border:1px solid rgba(0,0,0,.14);cursor:pointer;font:300 17px/1 Manrope,sans-serif;color:#2E2E2E" style-hover="border-color:rgba(0,0,0,.45)">←</button>
+              <button onClick="{{ imgNext }}" aria-label="Nächstes Bild" style="width:42px;height:42px;display:grid;place-items:center;background:none;border:1px solid rgba(0,0,0,.14);cursor:pointer;font:300 17px/1 Manrope,sans-serif;color:#2E2E2E" style-hover="border-color:rgba(0,0,0,.45)">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <section aria-label="Projektnavigation" style="margin-top:clamp(64px,7vw,110px);border-top:1px solid rgba(0,0,0,.10);padding:28px 40px 90px">
+      <div style="max-width:1760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <button onClick="{{ galPrev }}" aria-label="Vorheriges Projekt" style="{{ prevBtnStyle }}" style-hover="border-color:rgba(0,0,0,.45);color:#2E2E2E">
+          <span style="width:42px;height:42px;display:grid;place-items:center;border-right:1px solid rgba(0,0,0,.14);font:300 17px/1 Manrope,sans-serif">←</span>
+          <span style="padding:0 20px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">{{ prevName }}</span>
+        </button>
+        <span style="font:500 12px/1 Manrope,sans-serif;letter-spacing:.16em;color:#9A9A9A">{{ projCounter }}</span>
+        <button onClick="{{ galNext }}" aria-label="Nächstes Projekt" style="{{ nextBtnStyle }}" style-hover="border-color:rgba(0,0,0,.45);color:#2E2E2E">
+          <span style="padding:0 20px;font:500 12px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">{{ nextName }}</span>
+          <span style="width:42px;height:42px;display:grid;place-items:center;border-left:1px solid rgba(0,0,0,.14);font:300 17px/1 Manrope,sans-serif">→</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+
+
+
+
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;menuSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Verhalten&quot;},&quot;galleryHeight&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:74,&quot;min&quot;:52,&quot;max&quot;:92,&quot;step&quot;:2,&quot;unit&quot;:&quot;vh&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Galerie&quot;}}">
+const PROJECT = {
+  title: 'Umbau Amthaus',
+  ort: 'Aarberg',
+  baujahr: '2015–',
+  bauweise: 'Massivbau',
+  typ: 'Öffentliches Gebäude',
+  volumen: "7'200 m³",
+  kicker: 'Realisiertes Projekt',
+  description: 'Das Amthaus im historischen Ortskern von Aarberg wurde etappenweise umgebaut und den heutigen Anforderungen an ein öffentliches Gebäude angepasst. Der Massivbau bleibt in seiner Substanz erhalten; neue Einbauten ordnen die Abläufe, verbessern die Erschliessung und bringen Tageslicht in die tiefen Grundrisse. Materialwahl und Detaillierung nehmen den Bestand auf, ohne ihn zu kopieren.'
+};
+
+const SHOTS = [
+  ['./uploads/_WE_4367-.jpg', 'Aussenansicht'],
+  ['./uploads/_WE_4346.jpg', 'Eingangsbereich'],
+  ['./uploads/_WE_4347.jpg', 'Treppenhaus'],
+  ['./uploads/_WE_4424-.jpg', 'Büroraum im Obergeschoss'],
+  ['./uploads/_WE_4304-.jpg', 'Detail Bestand und Einbau'],
+  ['./uploads/_WE_4272-.jpg', 'Blick in den Ortskern']
+];
+
+const PROJECTS = [
+  { title: 'Umbau Amthaus', ort: 'Aarberg', baujahr: '2015–', bauweise: 'Massivbau', typ: 'Öffentliches Gebäude', volumen: "7'200 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_4367-.jpg',
+    description: PROJECT.description },
+  { title: 'Anbau Casutt', ort: 'Gerolfingen', baujahr: '2019', bauweise: 'Holzelementbau', typ: 'Anbau Wohnhaus', volumen: "640 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_2661-.jpg',
+    description: 'Der Anbau ergänzt das bestehende Wohnhaus um einen ruhigen Wohn- und Essbereich zum Garten. Die Holzkonstruktion setzt sich klar vom verputzten Bestand ab, bleibt in Proportion und Höhe aber bewusst zurückhaltend.' },
+  { title: 'Anbau Schmutz', ort: 'Täuffelen', baujahr: '2018', bauweise: 'Massivbau', typ: 'Anbau Wohnhaus', volumen: "520 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_4287-.jpg',
+    description: 'Ein kompakter Anbau schafft Raum für Küche und Essplatz. Grosse Öffnungen orientieren den Innenraum nach Süden; der Bestand erhält gleichzeitig eine neue, gedämmte Gebäudehülle.' },
+  { title: 'Anbau Gafner', ort: 'Kerzers', baujahr: '2021', bauweise: 'Holzbau', typ: 'Anbau Wohnhaus', volumen: "480 m³", kicker: 'Realisiertes Projekt', src: './uploads/IMG_3314.jpg',
+    description: 'Der Zubau verbindet Wohnhaus und Garten über eine gedeckte Zwischenzone. Sichtbares Holz, wenige Materialien und präzise Anschlüsse prägen den Ausdruck.' },
+  { title: 'Wohnhaus Rebhalde', ort: 'Täuffelen', baujahr: '2020', bauweise: 'Massivbau', typ: 'Neubau Einfamilienhaus', volumen: "1'150 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_2670-.jpg',
+    description: 'Am Hang gestaffelt, folgt das Haus dem Gelände und nutzt die Aussicht über den See. Die Räume sind um einen zentralen Kern organisiert, der Erschliessung und Technik bündelt.' },
+  { title: 'Umbau Scheune Bärgli', ort: 'Suberg', baujahr: '2017', bauweise: 'Holz-/Mischbau', typ: 'Umnutzung', volumen: "2'400 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_4178-.jpg',
+    description: 'Die Scheune wird zu Wohnraum umgenutzt. Das bestehende Tragwerk bleibt sichtbar; neue Einbauten stehen als eigenständige Volumen im grossen Raumvolumen.' },
+  { title: 'Sanierung Altstadthaus', ort: 'Erlach', baujahr: '2016', bauweise: 'Massivbau', typ: 'Sanierung', volumen: "1'800 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_2696-.jpg',
+    description: 'Sorgfältige Instandsetzung eines Altstadthauses: historische Substanz wird gesichert, Haustechnik und Grundrisse werden auf heutige Bedürfnisse gebracht.' },
+  { title: 'Wohnhaus Weiherblick', ort: 'Meikirch', baujahr: '2022', bauweise: 'Holzelementbau', typ: 'Neubau Einfamilienhaus', volumen: "980 m³", kicker: 'Realisiertes Projekt', src: './uploads/_WE_4266-.jpg',
+    description: 'Ein ruhiges Volumen mit tiefem Dachvorsprung. Der Wohnraum öffnet sich zum Weiher, die Nebenräume liegen als Schicht gegen die Strasse.' },
+  { title: 'Pavillon Seeuferweg', ort: 'Wengi', baujahr: '2023', bauweise: 'Holzbau', typ: 'Öffentliches Gebäude', volumen: "320 m³", kicker: 'Wettbewerb', src: './uploads/_WE_4152-.jpg',
+    description: 'Ein leichter Pavillon am Seeuferweg: Aufenthalt, Schatten und Unterstand in einer einfachen, robusten Holzkonstruktion.' }
+];
+
+// Bildstrecke je Projekt: eigenes Leitbild zuerst, danach die weiteren Aufnahmen.
+function shotsFor(p) {
+  const rest = SHOTS.filter(([src]) => src !== p.src);
+  return [[p.src, 'Aussenansicht']].concat(rest);
+}
+
+class Component extends DCLogic {
+  state = { proj: 0, shot: 0, w: 1440 };
+
+  componentDidMount() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); };
+  onKey = (e) => {
+    if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null });
+    if (e.key === 'ArrowRight') this.goProject(1);
+    if (e.key === 'ArrowLeft') this.goProject(-1);
+  };
+  componentDidUpdate(pp, ps) {
+    if (ps.menuOpen !== this.state.menuOpen) document.body.style.overflow = this.state.menuOpen ? 'hidden' : '';
+  }
+
+  setGal = (el) => { this.gal = el; };
+  stepShot(dir) {
+    const el = this.gal;
+    if (!el) return;
+    const i = Math.min(el.children.length - 1, Math.max(0, this.state.shot + dir));
+    const child = el.children[i];
+    if (child) el.scrollTo({ left: child.offsetLeft - el.offsetLeft, behavior: 'smooth' });
+  }
+  goProject(dir) {
+    const i = Math.min(PROJECTS.length - 1, Math.max(0, this.state.proj + dir));
+    if (i === this.state.proj) return;
+    if (this.gal) this.gal.scrollTo({ left: 0, behavior: 'auto' });
+    this.setState({ proj: i, shot: 0 });
+  }
+  onScroll = () => {
+    const el = this.gal;
+    if (!el) return;
+    const x = el.scrollLeft + el.clientWidth * 0.25;
+    let i = 0;
+    for (let k = 0; k < el.children.length; k++) {
+      if (el.children[k].offsetLeft - el.offsetLeft <= x) i = k;
+    }
+    if (i !== this.state.shot) this.setState({ shot: i });
+  };
+  toggle(k) { this.setState(s => ({ sub: s.sub === k ? null : k })); }
+
+  renderVals() {
+    const { proj, shot, w } = this.state;
+    const mobile = w < 900;
+    const galH = this.props.galleryHeight ?? 74;
+    const shots = shotsFor(PROJECTS[proj]);
+
+    const open = !!this.state.menuOpen;
+    const side = this.props.menuSide === 'right' ? 'right' : 'left';
+
+    const act = PROJECTS[proj];
+    const atStart = proj === 0;
+    const atEnd = proj === PROJECTS.length - 1;
+    const arrowBtn = (dis) => ({
+      display: 'flex', alignItems: 'center', background: 'none',
+      border: '1px solid rgba(0,0,0,.14)', padding: 0, cursor: dis ? 'default' : 'pointer',
+      color: dis ? '#C4C0BA' : '#6B6B6B', opacity: dis ? .45 : 1,
+      transition: 'color .3s ease, border-color .3s ease, opacity .3s ease'
+    });
+
+    return {
+      title: act.title,
+      kicker: act.kicker,
+      ortLabel: act.ort + ', Schweiz',
+      description: act.description,
+      meta: [
+        { label: 'Ort', value: act.ort },
+        { label: 'Baujahr', value: act.baujahr },
+        { label: 'Bauweise', value: act.bauweise },
+        { label: 'Typ', value: act.typ },
+        { label: 'Volumen', value: act.volumen }
+      ],
+      prevName: atStart ? '—' : PROJECTS[proj - 1].title,
+      nextName: atEnd ? '—' : PROJECTS[proj + 1].title,
+      prevBtnStyle: arrowBtn(atStart),
+      nextBtnStyle: arrowBtn(atEnd),
+      projCounter: String(proj + 1).padStart(2, '0') + ' / ' + String(PROJECTS.length).padStart(2, '0'),
+      infoColStyle: {
+        position: 'relative',
+        padding: mobile ? '20px 40px 0 40px' : '20px 0 0 40px',
+        display: 'flex', flexDirection: 'column', gap: '44px'
+      },
+      layoutStyle: {
+        display: 'grid',
+        gridTemplateColumns: mobile ? '1fr' : 'minmax(280px, 25vw) minmax(0, 1fr)',
+        gap: mobile ? '48px' : 'clamp(40px, 4.5vw, 80px)',
+        alignItems: 'start',
+        maxWidth: '1760px',
+        margin: '0 auto'
+      },
+      galSectionStyle: {
+        position: 'relative', minWidth: 0, display: 'flex', flexDirection: 'column',
+        gap: '18px'
+      },
+      galRef: this.setGal,
+      onGalScroll: this.onScroll,
+      galStyle: {
+        display: 'flex', gap: '20px', overflowX: 'auto', scrollSnapType: 'x mandatory',
+        paddingRight: '40px', WebkitOverflowScrolling: 'touch'
+      },
+      slides: shots.map(([src, cap], i) => ({
+        src,
+        alt: act.title + ', ' + act.ort + ' — ' + cap + ' (' + act.typ + ')',
+        figStyle: {
+          margin: 0, flex: '0 0 auto', scrollSnapAlign: 'start',
+          height: mobile ? '52vh' : galH + 'vh',
+          width: i % 3 === 1 ? (mobile ? '86vw' : '32vw') : (mobile ? '86vw' : '48vw'),
+          maxWidth: '100%', overflow: 'hidden'
+        }
+      })),
+      shotCaption: shots[shot] ? shots[shot][1] : '',
+      shotCounter: String(shot + 1).padStart(2, '0') + ' / ' + String(shots.length).padStart(2, '0'),
+      imgPrev: () => this.stepShot(-1),
+      imgNext: () => this.stepShot(1),
+      galPrev: () => this.goProject(-1),
+      galNext: () => this.goProject(1),
+
+      panelStyle: {
+        position: 'fixed', top: 0, bottom: 0, [side]: 0, zIndex: 220,
+        width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+        background: 'rgba(252,250,247,0.72)',
+        backdropFilter: 'blur(26px) saturate(1.1)', WebkitBackdropFilter: 'blur(26px) saturate(1.1)',
+        borderRight: side === 'left' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        borderLeft: side === 'right' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        transform: open ? 'none' : 'translateX(' + (side === 'left' ? '-102%' : '102%') + ')',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      },
+      scrimStyle: {
+        position: 'fixed', inset: 0, zIndex: 210, background: 'rgba(17,17,17,0.18)',
+        opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none', transition: 'opacity .6s ease'
+      },
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggle('leistungen'),
+      toggleUeberUns: () => this.toggle('ueber'),
+      toggleJobs: () => this.toggle('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

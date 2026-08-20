@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<title>Projekte — Wüthrich Architekten AG</title>
+<meta name="description" content="Projekte von Wüthrich Architekten AG — realisierte und laufende Bauten sowie Wettbewerbe im Berner Seeland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #FCFAF7; }
+  body { font-family: Manrope, system-ui, sans-serif; color: #2E2E2E; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2E2E2E; text-decoration: none; }
+  a:hover { color: #6B6B6B; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+</style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;background:#FCFAF7">
+
+
+
+  <section style="max-width:1600px;margin:0 auto;padding:190px 40px 64px;display:flex;flex-direction:column;gap:26px">
+    <h1 style="margin:0;font:300 clamp(32px,3.6vw,52px)/1.02 Manrope,sans-serif;letter-spacing:-.01em;color:#2E2E2E">Projekte</h1>
+    <p style="margin:0;font:300 clamp(19px,1.7vw,26px)/1.35 Manrope,sans-serif;color:#6B6B6B">Architektur, die zuhört. Planung, die wirkt. Lösungen, die tragen.</p>
+  </section>
+
+  <div style="position:sticky;top:81px;z-index:100;background:rgba(252,250,247,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid rgba(0,0,0,.10);border-bottom:1px solid rgba(0,0,0,.10)">
+    <div style="max-width:1600px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap">
+      <nav style="display:flex;align-items:center;gap:34px;flex-wrap:wrap;overflow-x:auto">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+          <button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap">
+        <span style="font:400 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9A9A9A">{{ countLabel }}</span>
+      </div>
+    </div>
+  </div>
+
+  <main style="max-width:1600px;margin:0 auto;padding:44px 40px 120px">
+    <sc-if value="{{ isEmpty }}">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:120px 0 140px;text-align:center;animation:fadeUp .5s ease both">
+        <span style="font:300 26px/1.3 Manrope,sans-serif;color:#2E2E2E">Wettbewerbsbeiträge folgen.</span>
+        <span style="font:400 15px/1.6 Manrope,sans-serif;color:#6B6B6B;max-width:44ch">In dieser Kategorie sind derzeit keine Projekte publiziert. Wählen Sie eine andere Kategorie.</span>
+      </div>
+    </sc-if>
+
+    <div style="display:flex;align-items:flex-start;gap:28px">
+      <sc-for list="{{ columns }}" as="col" hint-placeholder-count="3">
+        <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:28px">
+          <sc-for list="{{ col.items }}" as="p" hint-placeholder-count="4">
+            <a href="./03 Project Detail.dc.html" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" style="{{ p.tileStyle }}">
+              <div style="{{ p.mediaStyle }}">
+                <div style="{{ p.zoomStyle }}">
+                  <sc-if value="{{ p.hasPhoto }}">
+                    <img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+                  </sc-if>
+                  <sc-if value="{{ p.noPhoto }}" hint-placeholder-val="{{ true }}">
+                    <image-slot id="{{ p.slotId }}" shape="rect" fit="cover" placeholder="{{ p.slotHint }}"></image-slot>
+                  </sc-if>
+                </div>
+                <div style="{{ p.overlayStyle }}">
+                  <span style="font:500 clamp(18px,1.6vw,26px)/1.15 Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF">{{ p.name }}</span>
+                  <span style="font:400 13px/1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)">{{ p.ort }}</span>
+                </div>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </main>
+
+
+
+
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;menuSide&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;left&quot;,&quot;right&quot;],&quot;default&quot;:&quot;right&quot;,&quot;tsType&quot;:&quot;'left' | 'right'&quot;,&quot;section&quot;:&quot;Verhalten&quot;}}">
+const P = [
+  ['Amtshaus Aarberg', 'Aarberg', 'realisiert', 'Sanierung', 1.25, './uploads/_WE_4367-.jpg'],
+  ['Anbau Casutt', 'Gerolfingen', 'realisiert', 'Umbau', 0.667, './uploads/_WE_2661-.jpg'],
+  ['Anbau Gafner', 'Kerzers', 'realisiert', 'Umbau', 0.75, './uploads/IMG_3314.jpg'],
+  ['Anbau Schmutz', 'Täuffelen', 'realisiert', 'Umbau', 0.667, './uploads/_WE_4287-.jpg'],
+  ['Wohnhaus Sonnhalde', 'Lyss', 'realisiert', 'Neubau', 0.75],
+  ['Mehrfamilienhaus Bahnhofstrasse', 'Aarberg', 'realisiert', 'Neubau', 1.4],
+  ['Umbau Bauernhaus Chräjeloch', 'Kappelen', 'realisiert', 'Umbau', 1.0],
+  ['Sanierung Schulhaus Dorf', 'Ins', 'realisiert', 'Sanierung', 1.5],
+  ['Atelierhaus Seematte', 'Nidau', 'realisiert', 'Neubau', 0.72],
+  ['Wohnüberbauung Rebacker', 'Twann', 'laufend', 'Neubau', 1.35],
+  ['Erweiterung Gemeindehaus', 'Schüpfen', 'laufend', 'Umbau', 1.0],
+  ['Doppelhaus Feldrain', 'Studen', 'realisiert', 'Neubau', 0.78],
+  ['Sanierung Reihenhauszeile', 'Brügg', 'realisiert', 'Sanierung', 1.45],
+  ['Werkhalle Industriering', 'Kallnach', 'realisiert', 'Neubau', 1.5],
+  ['Wohnhaus Rebhalde', 'Täuffelen', 'laufend', 'Neubau', 0.8],
+  ['Umbau Stöckli Wyden', 'Seedorf', 'realisiert', 'Umbau', 1.0],
+  ['Aufstockung Lindenweg', 'Busswil', 'realisiert', 'Umbau', 1.4],
+  ['Kindergarten Hofmatt', 'Grossaffoltern', 'laufend', 'Neubau', 0.76],
+  ['Sanierung Altstadthaus', 'Erlach', 'realisiert', 'Sanierung', 1.0],
+  ['Wohnhaus Weiherblick', 'Meikirch', 'realisiert', 'Neubau', 1.5],
+  ['Gewerbebau Moosgasse', 'Radelfingen', 'laufend', 'Neubau', 0.74],
+  ['Umbau Scheune Bärgli', 'Suberg', 'realisiert', 'Umbau', 1.42],
+  ['Wohnhaus Chnubel', 'Diessbach', 'realisiert', 'Neubau', 1.0],
+  ['Sanierung Mehrfamilienhaus Ring', 'Biel/Bienne', 'realisiert', 'Sanierung', 0.78],
+  ['Wohnüberbauung Bielstrasse', 'Bargen', 'laufend', 'Neubau', 1.48],
+  ['Pavillon Seeuferweg', 'Wengi', 'realisiert', 'Neubau', 1.0]
+].map((p, i) => ({
+  key: 'p' + (i + 1), name: p[0], ort: p[1], cat: p[2], typ: p[3], ratio: p[4], src: p[5] || null,
+  slotId: 'wa-proj-' + (i + 1)
+}));
+
+const CATS = [
+  ['alle', 'Alle'],
+  ['realisiert', 'Realisierte Projekte'],
+  ['laufend', 'Laufende Projekte'],
+  ['wettbewerb', 'Wettbewerbe']
+];
+const TYPES = [['alle', 'Alle'], ['Neubau', 'Neubau'], ['Umbau', 'Umbau'], ['Sanierung', 'Sanierung']];
+
+class Component extends DCLogic {
+  state = { cat: 'alle', typ: 'alle', hover: null, cols: 3 };
+
+  componentDidMount() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('keydown', this.onKey);
+    document.body.style.overflow = '';
+  }
+  onResize = () => {
+    const w = window.innerWidth;
+    const cols = w < 720 ? 1 : w < 1100 ? 2 : w < 1500 ? 3 : 4;
+    if (cols !== this.state.cols) this.setState({ cols });
+  };
+  onKey = (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false, sub: null }); };
+  componentDidUpdate(pp, ps) {
+    if (ps.menuOpen !== this.state.menuOpen) {
+      document.body.style.overflow = this.state.menuOpen ? 'hidden' : '';
+      if (this.state.menuOpen) document.addEventListener('keydown', this.onKey);
+      else document.removeEventListener('keydown', this.onKey);
+    }
+  }
+  toggle(k) { this.setState(s => ({ sub: s.sub === k ? null : k })); }
+
+  chip(active, big) {
+    return {
+      background: 'none', border: 0, padding: '4px 0', cursor: 'pointer',
+      font: (active ? 500 : 400) + ' ' + (big ? '13px' : '12px') + '/1 Manrope, sans-serif',
+      letterSpacing: big ? '.16em' : '.14em', textTransform: 'uppercase',
+      color: active ? '#2E2E2E' : '#9A9A9A', whiteSpace: 'nowrap',
+      borderBottom: '1px solid ' + (active ? '#2E2E2E' : 'transparent'),
+      transition: 'color .3s ease, border-color .3s ease'
+    };
+  }
+
+  renderVals() {
+    const { cat, typ, cols, hover } = this.state;
+    const list = P.filter(p => (cat === 'alle' || p.cat === cat) && (typ === 'alle' || p.typ === typ));
+
+    const buckets = Array.from({ length: cols }, () => ({ items: [], h: 0 }));
+    list.forEach(p => {
+      const b = buckets.reduce((a, c) => (c.h < a.h ? c : a), buckets[0]);
+      const on = hover === p.key;
+      b.items.push({
+        key: p.key, name: p.name, ort: p.ort, slotId: p.slotId,
+        meta: p.typ + ' · ' + p.ort,
+        src: p.src, hasPhoto: !!p.src, noPhoto: !p.src,
+        alt: p.name + ', ' + p.ort + ' — ' + p.typ + ', Wüthrich Architekten AG',
+        slotHint: p.name + ' — ' + p.ort + ' (' + p.typ + ')',
+        enter: () => this.setState({ hover: p.key }),
+        leave: () => this.setState({ hover: null }),
+        tileStyle: { display: 'block', textDecoration: 'none', color: '#2E2E2E' },
+        mediaStyle: {
+          position: 'relative', width: '100%', aspectRatio: String(1 / p.ratio),
+          overflow: 'hidden', background: '#F4F0E9'
+        },
+        zoomStyle: {
+          position: 'absolute', inset: 0,
+          transform: on ? 'scale(1.045)' : 'none',
+          transition: 'transform 1.1s cubic-bezier(.2,.6,.1,1)'
+        },
+        overlayStyle: {
+          position: 'absolute', left: 0, right: 0, bottom: 0, height: '34%',
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          justifyContent: 'center', textAlign: 'center', gap: '8px', padding: '20px 28px',
+          background: 'linear-gradient(to top, rgba(17,17,17,.52) 0%, rgba(17,17,17,.34) 60%, rgba(17,17,17,.22) 100%)',
+          backdropFilter: on ? 'blur(20px)' : 'blur(0px)',
+          WebkitBackdropFilter: on ? 'blur(20px)' : 'blur(0px)',
+          maskImage: 'linear-gradient(to top, #000 0%, #000 62%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to top, #000 0%, #000 62%, rgba(0,0,0,0) 100%)',
+          opacity: on ? 1 : 0, pointerEvents: 'none',
+          transition: 'opacity .35s ease, backdrop-filter .35s ease, -webkit-backdrop-filter .35s ease'
+        }
+      });
+      b.h += p.ratio + 0.09;
+    });
+
+    const open = !!this.state.menuOpen;
+    const side = this.props.menuSide === 'right' ? 'right' : 'left';
+
+    return {
+      columns: buckets,
+      isEmpty: list.length === 0,
+      countLabel: list.length + ' Projekte',
+      cats: CATS.map(([id, label]) => ({
+        label, style: this.chip(cat === id, true), pick: () => this.setState({ cat: id })
+      })),
+      types: TYPES.map(([id, label]) => ({
+        label, style: this.chip(typ === id, false), pick: () => this.setState({ typ: id })
+      })),
+      panelStyle: {
+        position: 'fixed', top: 0, bottom: 0, [side]: 0, zIndex: 220,
+        width: 'min(46vw, 620px)', display: 'flex', flexDirection: 'column',
+        background: 'rgba(252,250,247,0.72)',
+        backdropFilter: 'blur(26px) saturate(1.1)', WebkitBackdropFilter: 'blur(26px) saturate(1.1)',
+        borderRight: side === 'left' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        borderLeft: side === 'right' ? '1px solid rgba(0,0,0,0.10)' : 'none',
+        transform: open ? 'none' : 'translateX(' + (side === 'left' ? '-102%' : '102%') + ')',
+        transition: 'transform .72s cubic-bezier(.72,0,.16,1)', overflowY: 'auto'
+      },
+      scrimStyle: {
+        position: 'fixed', inset: 0, zIndex: 210, background: 'rgba(17,17,17,0.18)',
+        opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none', transition: 'opacity .6s ease'
+      },
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false, sub: null }),
+      toggleLeistungen: () => this.toggle('leistungen'),
+      toggleUeberUns: () => this.toggle('ueber'),
+      toggleJobs: () => this.toggle('jobs'),
+      subLeistungen: this.state.sub === 'leistungen',
+      subUeberUns: this.state.sub === 'ueber',
+      subJobs: this.state.sub === 'jobs'
+    };
+  }
+}
+</script>
+</body>
+</html>
